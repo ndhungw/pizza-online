@@ -1,3 +1,8 @@
+# Quy trình
+- Mỗi người tạo một branch riêng với tên branch là mã số sinh viên.
+- Code màn hình đã được giao và merge vào develop.
+- Xử lí conflict sau khi merge.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

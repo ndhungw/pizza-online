@@ -23,7 +23,7 @@ const useStyles = makeStyles((theme) => ({
         paddingRight: theme.spacing(12),
     },  
     pageContent: {
-        backgroundColor: 'red'
+        
     }
 }));
 

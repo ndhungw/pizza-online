@@ -8,6 +8,7 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   pageSectionName: {
     fontWeight: "bold",
+    width: "100%",
     marginTop: "1%",
     marginBottom: "1%",
   },
@@ -25,7 +26,7 @@ const PageSectionName = ({ fontVariant, name }) => {
 
   return (
     <>
-      <Grid item xs={12} justify="flex-start">
+      <Grid container item xs={12} justify="flex-start">
         <Typography
           color="textPrimary"
           align="left"

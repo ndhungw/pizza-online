@@ -12,7 +12,7 @@ import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounde
 // react-router-dom
 import { NavLink } from "react-router-dom";
 // From this project
-import pizzaImgUrl from "./../../static/pizzaImg.png";
+import pizzaImgUrl from "../../assets/img/pizzaImg.png";
 import SimpleSelect from "./SimpleSelect";
 
 const useStyles = makeStyles((theme) => ({

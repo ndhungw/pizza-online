@@ -3,9 +3,9 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, Grid } from "@material-ui/core";
 // From this project
-import SearchBar from "../components/Menu/SearchBar";
-import Filter from "../components/Menu/Filter";
-import PizzaCard from "../components/Menu/PizzaCard";
+import SearchBar from "../components/SearchBar/SearchBar";
+import Filter from "../components/Filter/Filter";
+import PizzaCard from "../components/CustomPizzaCard/PizzaCard";
 
 const useStyles = makeStyles((theme) => ({
   searchBar: {

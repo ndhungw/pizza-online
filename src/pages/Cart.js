@@ -1,12 +1,9 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
-import PageSectionName from '../components/PizzaDetail/PageSectionName';
 import CartTable from '../components/Cart/CartTable';
-import { Button, ButtonBase, Typography } from '@material-ui/core';
+import { ButtonBase, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const StyledSum = withStyles((theme) => ({
+const StyledSum = withStyles(() => ({
     root: {
     fontStyle: 'normal',
     fontWeight: 'bold',
@@ -45,7 +42,7 @@ const StyledSum = withStyles((theme) => ({
   },
   })) (Typography);
 
-const Cart = (props) => {
+const Cart = () => {
     const classes = useStyles();
 
     return (

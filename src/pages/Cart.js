@@ -6,10 +6,18 @@ import Container from '@material-ui/core/Container';
 
 import PageSectionName from '../components/PizzaDetail/PageSectionName';
 import CartTable from '../components/CartTable';
+import { Button, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
+    },
+
+    summary: {
+        marginTop: theme.spacing(4),
+        display: 'flex',
+        justifyContent: "flex-end",
+        alignItems: "center",
     },
     content: {
         flexGrow: 1,
@@ -33,6 +41,12 @@ const Cart = (props) => {
     return(
         <Container>
             <CartTable></CartTable>
+            <div className = {classes.summary}>
+            <Typography>Tổng:</Typography>
+            <Typography>150000</Typography>
+            <Button>Thanh toán</Button>
+            </div>
+            
         </Container>
     );
 }

@@ -15,6 +15,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 // views
 import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";
+import HomePage from './pages/HomePage'
 import Header from './components/Header';
 
 // Footer
@@ -52,6 +53,9 @@ function App() {
         <main>
           {/* The page content here */}
           <Switch>
+            <Route path="/home">
+              <HomePage />
+            </Route>
             <Route path="/menu">
               <Menu />
             </Route>

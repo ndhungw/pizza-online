@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-const ActionsOnPizza = () => {
+const ActionsOnPizza = ({onSizeChange, onCrustChange}) => {
     const classes = useStyles();
 
     const sizeOptions = ["Nhỏ", "Vừa", "Lớn"];
@@ -27,10 +27,16 @@ const ActionsOnPizza = () => {
 
     const handleSizeChange = (event) => {
         setSizeOption(event.target.value);
+        if(onSizeChange){
+            onSizeChange(event.target.value);
+        }
     };
 
     const handleCrustChange = (event) => {
         setCrustOption(event.target.value);
+        if(onCrustChange){
+            onCrustChange(event.target.value);
+        }
     };
 
     return(
@@ -60,7 +66,9 @@ const ActionsOnPizza = () => {
                         <Select variant="standard" value={sizeOption}
                         onChange={(e) => handleSizeChange(e)} style={{
                             width: '70%'
-                        }} >
+                        }} MenuProps={{
+                            disableScrollLock: true,
+                        }}>
                             {sizeOptions.map((val, idx) =>
                                 <MenuItem key={"pizzaSizeOption" + idx} value={idx}>{val}</MenuItem>
                             )}
@@ -85,6 +93,8 @@ const ActionsOnPizza = () => {
                         <Select value={crustOption}
                         onChange={(e) => handleCrustChange(e)} variant="standard" style={{
                             width: '70%'
+                        }} MenuProps={{
+                            disableScrollLock: true,
                         }}>
                             {crustOptions.map((val, idx) =>
                                 <MenuItem key={"pizzaCrustOption" + idx} value={idx}>{val}</MenuItem>

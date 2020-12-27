@@ -1,6 +1,7 @@
 import React from 'react';
+import { useState } from 'react';
+
 import Grid from '@material-ui/core/Grid';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import {Typography} from '@material-ui/core';
@@ -52,14 +53,27 @@ const pizzaTags = [{
 }
 ];
 
+const pizzaPrice = 200;
+
 const PizzaDetail = (props) => {
     const classes = useStyles();
 
+    const [size, setSize] = useState(0);
+    const [crust, setCrust] = useState(0);
+
     const PizzaImg_Id = "PizzaImage";
+
+    const getTotalPrice = (size, crust, pizzaPrice) => {
+        const formatter = new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+        });
+        const equation = (pizzaPrice + size*10 + (1-crust)*5)*1000;
+        return formatter.format(equation);
+    }
 
     return(
         <div className={classes.root}>
-            <CssBaseline />
             <main className={classes.content} >
                 {/* use this if you use app bar <div className={classes.appBarSpacer} /> */}
                 <Container maxWidth="lg" className={classes.container}>
@@ -105,7 +119,8 @@ const PizzaDetail = (props) => {
                                 </Typography>
                                 &nbsp;
                                 <Typography color='textPrimary' align="center" variant="h5">
-                                    200.000Đ
+                                    {/* equation to calculate pizza price based on size and crust */}
+                                    {getTotalPrice(size, crust, pizzaPrice)}
                                 </Typography>
                             </Grid>
                         </Grid>   
@@ -117,7 +132,12 @@ const PizzaDetail = (props) => {
 
                         {/* Under the three columns, we have a row for actions on the pizza */}
                         <Grid container item xs={12} justify="center" alignContent="flex-start">
-                            <ActionsOnPizza />
+                            <ActionsOnPizza onSizeChange={(size) => {
+                                setSize(size);
+                            }}
+                            onCrustChange={(crust) => {
+                                setCrust(crust);
+                            }}/>
                         </Grid>
 
                         {/* Comment section starts here */}

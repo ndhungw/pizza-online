@@ -6,6 +6,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 // views
 import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";
+import HomePage from "./pages/HomePage"
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
 
       <Router>
         <Switch>
+          <Route path="/home">
+            <HomePage />
+          </Route>
           <Route path="/menu">
             <Menu />
           </Route>

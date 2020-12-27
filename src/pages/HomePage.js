@@ -1,11 +1,11 @@
 import React from 'react';
-import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import Introduction from '../components/HomePage/Introduction'
 import ComboList from '../components/HomePage/ComboList'
+import PizzaList from '../components/HomePage/PizzaList'
 
 const images = [
     {
@@ -48,6 +48,48 @@ const combos = [
       duration:'Vô thời hạn'
     },
 ];
+const pizzas = [
+  {
+    name: "ABC1",
+    price: "123",
+  },
+  {
+    name: "ABC2",
+    price: "123",
+  },
+  {
+    name: "ABC3",
+    price: "123",
+  },
+  {
+    name: "ABC1",
+    price: "123",
+  },
+  {
+    name: "ABC2",
+    price: "123",
+  },
+  {
+    name: "ABC3",
+    price: "123",
+  },
+  {
+    name: "ABC1",
+    price: "123",
+  },
+  {
+    name: "ABC2",
+    price: "123",
+  },
+  {
+    name: "ABC3",
+    price: "123",
+  },
+  {
+    name: "ABC1",
+    price: "123",
+  },
+];
 const useStyles = makeStyles((theme) => ({
     root: {
         display: 'flex',
@@ -60,8 +102,8 @@ const useStyles = makeStyles((theme) => ({
     container: {
         paddingTop: theme.spacing(6),
         paddingBottom: theme.spacing(4),
-        //paddingLeft: theme.spacing(4),
-        //paddingRight: theme.spacing(4),
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(4),
         flexDirection:'column'
     }
 }));
@@ -73,10 +115,11 @@ const HomePage = (props) => {
         <div className={classes.root}>
             <CssBaseline />
             <main className={classes.content}>
-                <div style={{width:'100%',backgroundColor:'#111133',height:60}} />
                 <Container maxWidth="xl" className={classes.container}>
                     <Introduction images={images}/>
-                    <div style={{height:50}} />
+                    <div style={{height:60}} />
+                    <PizzaList itemList={pizzas} />
+                    <div style={{height:100}} />
                     <ComboList itemList={combos} />
                 </Container>              
             </main>

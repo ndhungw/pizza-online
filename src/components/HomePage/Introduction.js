@@ -1,8 +1,8 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import RightArrowIcon from '@material-ui/icons/ArrowRight';
-
+import Slide from '@material-ui/core/Slide';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,26 +79,63 @@ export default function Introduction(props) {
     const {images}=props
     const classes = useStyles();
     const [selectedImage,setSelectedImage]=useState(0)
+    const [timer,setTimer]=useState(0)
+    //slide animation
+    const [check,setCheck]=useState(true)
+    const [slideDirection,setSlideDirection]=useState('left')
+
+    useEffect(()=>{
+      setTimer(10)
+    },[])
+    useEffect(()=>{
+      if(timer==0){
+        let nextImg
+        if(selectedImage==images.length-1)nextImg=0
+        else nextImg=selectedImage+1
+        changeImage(nextImg)
+        setTimer(5)
+      }
+      else {
+        const timeOut=setTimeout(()=>{
+          setTimer(timer-1)
+        },1000)
+        return (()=>{clearTimeout(timeOut)})
+      }
+    },[timer])
+    useEffect(()=>{
+      setCheck(true)
+    },[selectedImage])
+    const changeImage=(image)=>{
+      if(image==selectedImage)return
+      if(image<selectedImage){
+        setSlideDirection('right')
+      }
+      else setSlideDirection('left')
+      setCheck(false)
+      setSelectedImage(image)
+    }
 
     return (
-        <div className={classes.root}>
+      <div className={classes.root}>
+        {check?(
+          <Slide in={check} direction={slideDirection} mountOnEnter>
             <div className={classes.carouselContainer}>
                 {images.map((image,index) => (
                     <>
                     {selectedImage==index?(
-                        <ButtonBase
-                        onClick={()=>{alert(image.title)}}
-                        focusRipple
-                        key={image.title}
-                        className={classes.image}
-                        style={{width: '70%'}}>
-                            <span
-                                className={classes.imageSrc}
-                                style={{
-                                backgroundImage: `url(${image.url})`,
-                                }}
-                            />
-                        </ButtonBase>
+                      <ButtonBase
+                      onClick={()=>{alert(image.title)}}
+                      focusRipple
+                      key={image.title}
+                      className={classes.image}
+                      style={{width: '70%'}}>
+                          <span
+                              className={classes.imageSrc}
+                              style={{
+                              backgroundImage: `url(${image.url})`,
+                              }}
+                          />
+                      </ButtonBase>
                     ):(
                         <span />
                     )}
@@ -109,7 +146,7 @@ export default function Introduction(props) {
                     <>
                     {selectedImage==index-1 || (selectedImage==images.length-1 && index==0)?(
                         <ButtonBase
-                        onClick={()=>{setSelectedImage(index)}}
+                        onClick={()=>{changeImage(index);setTimer(5)}}
                         focusRipple
                         key={image.title}
                         className={classes.image}
@@ -131,19 +168,22 @@ export default function Introduction(props) {
                     </>
                 ))}
             </div>
-            <div className={classes.dotContainer}>
-                {images.map((image,index) => (
-                    <>
-                    {selectedImage==index?(
-                        <span style={{width:10,height:10,marginInline:10,borderRadius:10,backgroundColor:'black'}} />
-                    ):(
-                        <ButtonBase onClick={()=>{setSelectedImage(index)}}>
-                            <span style={{width:10,height:10,marginInline:10,borderRadius:10,backgroundColor:'grey'}} /> 
-                        </ButtonBase>
-                    )}
-                    </>
-                ))}
-            </div>
+          </Slide>
+        ):(<></>)}
+          
+        <div className={classes.dotContainer}>
+            {images.map((image,index) => (
+                <>
+                {selectedImage==index?(
+                    <span style={{width:10,height:10,marginInline:10,borderRadius:10,backgroundColor:'black'}} />
+                ):(
+                    <ButtonBase onClick={()=>{changeImage(index),setTimer(5)}}>
+                        <span style={{width:10,height:10,marginInline:10,borderRadius:10,backgroundColor:'grey'}} /> 
+                    </ButtonBase>
+                )}
+                </>
+            ))}
         </div>
+      </div>
     );
 }

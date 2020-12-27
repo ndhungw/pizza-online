@@ -98,11 +98,11 @@ export const PizzaDescription = ({pizzaDescription}) => {
                     width: "100%",
                 }} overflow="visible">
                     <line id={DescriptionBox_PizzaImg_Id1} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                     <line id={DescriptionBox_PizzaImg_Id2} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                 </svg>

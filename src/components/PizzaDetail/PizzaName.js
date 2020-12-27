@@ -23,12 +23,12 @@ const useStyles = makeStyles((theme) => ({
         width: "40%",
         maxWidth: "40%",
         border: 'none',
-        height: 5,
+        height: 4,
         backgroundColor: "black",
         alignSelf: 'center'
     },
     verticalLineStyle: {
-        width: 5,
+        width: 4,
         border: 'none',
         height: 50,
         backgroundColor: "black",

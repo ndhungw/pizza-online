@@ -13,6 +13,7 @@ import { PizzaTags } from '../components/PizzaDetail/PizzaTags';
 
 import pizzaImgUrl from "../assets/img/pizzaImg.png";
 import ActionsOnPizza from '../components/PizzaDetail/ActionsOnPizza';
+import CommentSection from '../components/CommentSection/CommentSection';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -117,6 +118,17 @@ const PizzaDetail = (props) => {
                         {/* Under the three columns, we have a row for actions on the pizza */}
                         <Grid container item xs={12} justify="center" alignContent="flex-start">
                             <ActionsOnPizza />
+                        </Grid>
+
+                        {/* Comment section starts here */}
+                        <Grid container item xs={12} style={{
+                            marginTop: 100,
+                        }}>
+                            <PageSectionName fontVariant="subtitle1" name="Bình luận"/>  
+                        </Grid>
+
+                        <Grid container item xs={12}>
+                             <CommentSection/>
                         </Grid>
 
                     </Grid>

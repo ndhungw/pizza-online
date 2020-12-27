@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
         overflowWrap: 'break-word',
         textAlign: 'justify',
         overflowY: 'auto',
-        maxHeight: 150
+        maxHeight: 200
     },
 }));
 
@@ -105,11 +105,11 @@ export const PizzaIngredients = ({PizzaIngredients}) => {
                     zIndex: -100,
                 }} overflow="visible">
                     <line id={IngredientsBox_PizzaImg_Id1} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                     <line id={IngredientsBox_PizzaImg_Id2} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                 </svg>

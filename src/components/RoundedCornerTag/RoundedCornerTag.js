@@ -27,7 +27,8 @@ const RoundedCornerTag = ({tagName, tagColor,...props}) => {
 
     return(
         <Button {...props} style={{
-            backgroundColor: tagColor ? tagColor : 'white'
+            backgroundColor: tagColor ? tagColor : 'white',
+            textTransform: 'none'
         }}>
             <Grid container item xs={12} justify='center' className={classes.parent}>
                 <Typography color='textPrimary' align='center' variant="subtitle2" className={classes.tagName}>

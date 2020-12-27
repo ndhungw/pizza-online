@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     width: "70%",
     maxWidth: "70%",
     border: "none",
-    height: 5,
+    height: 4,
     backgroundColor: "black",
   },
 }));

@@ -99,11 +99,11 @@ export const PizzaTags = ({pizzaTags}) => {
                     width: "100%"
                 }} overflow="visible">
                     <line id={TagsBox_PizzaImg_Id1} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                     <line id={TagsBox_PizzaImg_Id2} style={{
-                        strokeWidth: 5,
+                        strokeWidth: 4,
                         stroke: "rgb(0,0,0)",
                     }}/>
                 </svg>

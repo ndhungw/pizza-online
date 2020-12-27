@@ -96,6 +96,7 @@ export const PizzaDescription = ({pizzaDescription}) => {
                 <svg id={PizzaDescription_Line_Canvas} style={{
                     position: 'absolute',
                     width: "100%",
+                    zIndex: -100,
                 }} overflow="visible">
                     <line id={DescriptionBox_PizzaImg_Id1} style={{
                         strokeWidth: 4,

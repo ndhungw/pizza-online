@@ -96,7 +96,8 @@ export const PizzaTags = ({pizzaTags}) => {
             }}>
                 <svg id={PizzaTags_Line_Canvas} style={{
                     position: 'absolute',
-                    width: "100%"
+                    width: "100%",
+                    zIndex: -100,
                 }} overflow="visible">
                     <line id={TagsBox_PizzaImg_Id1} style={{
                         strokeWidth: 4,

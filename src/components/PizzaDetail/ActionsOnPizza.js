@@ -49,8 +49,8 @@ const ActionsOnPizza = () => {
                     justifyContent: 'center', 
                     alignItems: 'center'
                 }}>
-                    <Grid container item xs={12} sm={3} justify="center">
-                        <Typography color='textPrimary' align="center" variant="h6" style={{
+                    <Grid container item xs={12} sm={3} justify="flex-start">
+                        <Typography color='textPrimary' align="left" variant="h6" style={{
                             fontWeight: "bold"
                         }}>
                             Kích cỡ:
@@ -74,8 +74,8 @@ const ActionsOnPizza = () => {
                     justifyContent: 'center', 
                     alignItems: 'center'
                 }}>
-                    <Grid container item xs={12} sm={3} justify="center">
-                        <Typography color='textPrimary' align="center" variant="h6" style={{
+                    <Grid container item xs={12} sm={3} justify="flex-start">
+                        <Typography color='textPrimary' align="left" variant="h6" style={{
                             fontWeight: "bold"
                         }}>
                             Đế bánh:
@@ -108,8 +108,8 @@ const ActionsOnPizza = () => {
                     justifyContent: 'center', 
                     alignItems: 'center'
                 }}>
-                    <Grid container item xs={9} sm={3} justify="center">
-                        <Typography color='textPrimary' align="center" variant="h6" style={{
+                    <Grid container item xs={9} sm={3} justify="flex-start">
+                        <Typography color='textPrimary' align="left" variant="h6" style={{
                             fontWeight: "bold",
                             justifySelf: 'flex-start'
                         }}>

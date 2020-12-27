@@ -1,12 +1,12 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import PageSectionName from '../components/PizzaDetail/PageSectionName';
-import CartTable from '../components/CartTable';
-import { Button, Typography } from '@material-ui/core';
+import CartTable from '../components/Cart/CartTable';
+import { Button, ButtonBase, Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
     },
 
     summary: {
-        marginTop: theme.spacing(4),
+        marginTop: theme.spacing(3),
         display: 'flex',
         justifyContent: "flex-end",
         alignItems: "center",
@@ -29,24 +29,38 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: theme.spacing(4),
         paddingLeft: theme.spacing(12),
         paddingRight: theme.spacing(12),
-    },  
+    },
     pageContent: {
         backgroundColor: 'red'
     }
 }));
 
+const StyledSum = withStyles((theme) => ({
+    root: {
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    fontSize: 25,
+    // lineHeight: 42,
+    color: '#000000',
+  },
+  })) (Typography);
+
 const Cart = (props) => {
     const classes = useStyles();
 
-    return(
+    return (
         <Container>
             <CartTable></CartTable>
-            <div className = {classes.summary}>
-            <Typography>Tổng:</Typography>
-            <Typography>150000</Typography>
-            <Button>Thanh toán</Button>
+            <div className={classes.summary}>
+                <StyledSum style={{marginRight: 10}}>Tổng tiền: </StyledSum>
+                <StyledSum>150000</StyledSum>
+                <ButtonBase style={{marginLeft: 30}}>
+                    <div style={{ borderRadius: 20, paddingVertical: 15, paddingInline: 40, backgroundColor: '#D2112D' }}>
+                        <p style={{ fontWeight: 'bold', color: 'white', fontSize: 15 }}>Thanh Toán</p>
+                    </div>
+                </ButtonBase>
             </div>
-            
+
         </Container>
     );
 }

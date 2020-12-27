@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+// material-ui
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import RightArrowIcon from "@material-ui/icons/ArrowRight";
@@ -87,10 +88,20 @@ export default function Introduction(props) {
   useEffect(() => {
     setTimer(10);
   }, []);
+
+  const changeImage = (image) => {
+    if (image === selectedImage) return;
+    if (image < selectedImage) {
+      setSlideDirection("right");
+    } else setSlideDirection("left");
+    setCheck(false);
+    setSelectedImage(image);
+  };
+
   useEffect(() => {
-    if (timer == 0) {
+    if (timer === 0) {
       let nextImg;
-      if (selectedImage == images.length - 1) nextImg = 0;
+      if (selectedImage === images.length - 1) nextImg = 0;
       else nextImg = selectedImage + 1;
       changeImage(nextImg);
       setTimer(5);
@@ -102,19 +113,11 @@ export default function Introduction(props) {
         clearTimeout(timeOut);
       };
     }
-  }, [timer]);
+  }, [timer, images.length, selectedImage]);
+
   useEffect(() => {
     setCheck(true);
   }, [selectedImage]);
-
-  const changeImage = (image) => {
-    if (image == selectedImage) return;
-    if (image < selectedImage) {
-      setSlideDirection("right");
-    } else setSlideDirection("left");
-    setCheck(false);
-    setSelectedImage(image);
-  };
 
   return (
     <div className={classes.root}>
@@ -123,7 +126,7 @@ export default function Introduction(props) {
           <div className={classes.carouselContainer}>
             {images.map((image, index) => (
               <>
-                {selectedImage == index ? (
+                {selectedImage === index ? (
                   <ButtonBase
                     onClick={() => {
                       alert(image.title);
@@ -148,8 +151,8 @@ export default function Introduction(props) {
             <span style={{ width: "15%" }} />
             {images.map((image, index) => (
               <>
-                {selectedImage == index - 1 ||
-                (selectedImage == images.length - 1 && index == 0) ? (
+                {selectedImage === index - 1 ||
+                (selectedImage === images.length - 1 && index === 0) ? (
                   <ButtonBase
                     onClick={() => {
                       changeImage(index);
@@ -185,7 +188,7 @@ export default function Introduction(props) {
       <div className={classes.dotContainer}>
         {images.map((image, index) => (
           <>
-            {selectedImage == index ? (
+            {selectedImage === index ? (
               <span
                 style={{
                   width: 10,

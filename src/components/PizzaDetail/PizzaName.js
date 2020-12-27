@@ -8,36 +8,45 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     parent: {
         display: 'flex',
-        flexDirection: 'column',
+        flexDirection: 'column'
     },
     pizzaName:{
         fontWeight: 'bold',
         fontStyle: "italic",
         marginTop: "1%",
-        marginBottom: "1%"
+        marginBottom: "1%",
+        alignSelf: 'center',
+        width: '100%',
+        overflowWrap: 'break-word'
     },
     horizontalLineStyle: {
         width: "40%",
         maxWidth: "40%",
         border: 'none',
-        height: 5,
+        height: 4,
         backgroundColor: "black",
         alignSelf: 'center'
-    }
+    },
+    verticalLineStyle: {
+        width: 4,
+        border: 'none',
+        height: 50,
+        backgroundColor: "black",
+        alignSelf: 'center'
+    },
 }));
 
 const PizzaName = ({pizzaName}) => {
     const classes = useStyles();
 
     return(
-        <>
-            <Grid container item xs={12} justify='center' className={classes.parent}>
-                <Typography color='textPrimary' align='center' variant="h5" className={classes.pizzaName}>
-                        {pizzaName? pizzaName : 'Tên bánh'}
-                </Typography>
-                <Divider className={classes.horizontalLineStyle}/>
-            </Grid>
-        </>
+        <Grid container item xs={12} justify='center' className={classes.parent}>
+            <Typography color='textPrimary' align='center' variant="h5" className={classes.pizzaName}>
+                {pizzaName? pizzaName : 'Tên bánh'}
+            </Typography>
+            <Divider className={classes.horizontalLineStyle}/>
+            <Divider className={classes.verticalLineStyle}/>
+        </Grid>
     );
 }
 

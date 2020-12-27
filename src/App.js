@@ -17,18 +17,8 @@ import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";
 import Header from './components/Header';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
+// Footer
+import Footer from './components/Footer/Footer'
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -36,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },  
   footer: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+    position: "relative"
   },
 }));
 
@@ -50,50 +40,49 @@ function App() {
 
       <Router>
       <React.Fragment>
-      <CssBaseline />
-      <Header></Header>
-      <main>
-        {/* The page content here */}
-        <Switch>
-          <Route path="/menu">
-            <Menu />
-          </Route>
-          <Route path="/pizza-detail">
-            <PizzaDetail />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+        <CssBaseline />
+        <AppBar position="relative">
+          <Toolbar>
+            <CameraIcon className={classes.icon} />
+            <Typography variant="h6" color="inherit" noWrap>
+              Pizza Company
+            </Typography>
+          </Toolbar>
+        </AppBar>
+        <main>
+          {/* The page content here */}
+          <Switch>
+            <Route path="/menu">
+              <Menu />
+            </Route>
+            <Route path="/pizza-detail">
+              <PizzaDetail />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
 
-          {/* Test components */}
-          <Route path="/components/search-bar">
-            <SearchBar />
-          </Route>
-          <Route path="/components/filter">
-            <Filter />
-          </Route>
-          <Route path="/components/pizza-card">
-            <PizzaCard />
-          </Route>
-        </Switch>
 
-      </main>
-      {/* Footer */}
-      <footer className={classes.footer}>
-        <Typography variant="h6" align="center" gutterBottom>
-          Footer
-        </Typography>
-        <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-          Something here to give the footer a purpose!
-        </Typography>
-        <Copyright />
-      </footer>
-      {/* End footer */}
-    </React.Fragment>
+            {/* Test components */}
+            <Route path="/components/search-bar">
+              <SearchBar />
+            </Route>
+            <Route path="/components/filter">
+              <Filter />
+            </Route>
+            <Route path="/components/pizza-card">
+              <PizzaCard />
+            </Route>
+          </Switch>
+        </main>
+        {/* Footer */}
+        <footer className={classes.footer}>
+          <Footer />
+        </footer>
+        {/* End footer */}
+      </React.Fragment>
         
       </Router>
-
-      {/* Footer */}
     </>
   );
 }

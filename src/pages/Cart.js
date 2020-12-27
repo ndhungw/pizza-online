@@ -49,7 +49,7 @@ const Cart = (props) => {
     const classes = useStyles();
 
     return (
-        <Container>
+        <Container style={{paddingTop: 50}}>
             <CartTable></CartTable>
             <div className={classes.summary}>
                 <StyledSum style={{marginRight: 10}}>Tổng tiền: </StyledSum>

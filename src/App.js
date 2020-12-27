@@ -67,6 +67,9 @@ function App() {
           <Route path="/pizza-detail">
             <PizzaDetail />
           </Route>
+          <Route path="/cart">
+            <Cart />
+          </Route>
 
           {/* Test components */}
           <Route path="/components/search-bar">

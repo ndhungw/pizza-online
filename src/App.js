@@ -15,6 +15,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 // views
 import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";
+import Header from './components/Header';
 
 // Footer
 import Footer from './components/Footer/Footer'
@@ -60,6 +61,7 @@ function App() {
             <Route path="/cart">
               <Cart />
             </Route>
+
 
             {/* Test components */}
             <Route path="/components/search-bar">

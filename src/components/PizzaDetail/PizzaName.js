@@ -8,8 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
     parent: {
         display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap'
+        flexDirection: 'column'
     },
     pizzaName:{
         fontWeight: 'bold',

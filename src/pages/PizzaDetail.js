@@ -3,6 +3,7 @@ import Grid from '@material-ui/core/Grid';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import {Typography} from '@material-ui/core';
 
 import PageSectionName from '../components/PizzaDetail/PageSectionName';
 import PizzaName from '../components/PizzaDetail/PizzaName';
@@ -11,6 +12,7 @@ import { PizzaIngredients } from '../components/PizzaDetail/PizzaIngredients';
 import { PizzaTags } from '../components/PizzaDetail/PizzaTags';
 
 import pizzaImgUrl from "../assets/img/pizzaImg.png";
+import ActionsOnPizza from '../components/PizzaDetail/ActionsOnPizza';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -18,19 +20,20 @@ const useStyles = makeStyles((theme) => ({
     },
     content: {
         flexGrow: 1,
-        overflow: 'visible',   
+        overflow: 'visible',
+        boxSizing: 'border-box'   
     },
-    appBarSpacer: theme.mixins.toolbar,
     container: {
         paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(4),
         paddingLeft: theme.spacing(4),
         paddingRight: theme.spacing(4),
-    }, 
+    },
+    appBarSpacer: theme.mixins.toolbar,
     middleColumn: {
         display: 'flex',
-        flexDirection: 'column',
-        alignContent: 'flex-start'
+        flexDirection: 'row',
+        alignContent: 'center'
     }
 }));
 
@@ -58,7 +61,7 @@ const PizzaDetail = (props) => {
             <CssBaseline />
             <main className={classes.content} >
                 {/* use this if you use app bar <div className={classes.appBarSpacer} /> */}
-                <Container maxWidth="xl" className={classes.container}>
+                <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3} justify="center">
                         <Grid container item xs={12}>
                             <PageSectionName fontVariant="h4"/>  
@@ -74,24 +77,47 @@ const PizzaDetail = (props) => {
                             <PizzaDescription/>
                             <Grid item xs={12} style={{
                                 height: 150,
-                            }}>
-                            </Grid>
+                            }}/>
                             <PizzaTags pizzaTags={pizzaTags}/>
                         </Grid> 
 
                         { /* This is the middle column */}
-                        <Grid container item xs={4} justify="center" alignContent="flex-start" className={classes.middleColumn}>
-                            <img id={PizzaImg_Id} src={pizzaImgUrl} alt="Hello, you found the easter egg" 
-                                style={{
-                                    width: "100%",
-                                    position: 'relative'
-                            }} />
+                        <Grid container item xs={4} justify="center" className={classes.middleColumn}>
+                            <Grid item xs={12}>
+                                <img id={PizzaImg_Id} src={pizzaImgUrl} alt="Hello, you found the easter egg" 
+                                    style={{
+                                        width: "100%",
+                                }} />
+                            </Grid>
+
+                            <Grid container item xs={12} style={{
+                                display: 'flex',
+                                flexDirection: 'row',
+                                justifyContent: 'center',
+                                flexWrap: 'wrap',
+                                alignSelf: 'end'
+                            }}>
+                                <Typography color='textPrimary' align="center" variant="h5" style={{
+                                    fontWeight: "bold"
+                                }}>
+                                    Giá bán :
+                                </Typography>
+                                &nbsp;
+                                <Typography color='textPrimary' align="center" variant="h5">
+                                    200.000Đ
+                                </Typography>
+                            </Grid>
                         </Grid>   
                         
                         {/* This is the right column */}
                         <Grid container item xs={4} justify="center" alignContent="flex-start">
                             <PizzaIngredients/>
                         </Grid>    
+
+                        {/* Under the three columns, we have a row for actions on the pizza */}
+                        <Grid container item xs={12} justify="center" alignContent="flex-start">
+                            <ActionsOnPizza />
+                        </Grid>
 
                     </Grid>
                 </Container>              

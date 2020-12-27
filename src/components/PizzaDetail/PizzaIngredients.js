@@ -11,8 +11,7 @@ import $ from 'jquery';
 const useStyles = makeStyles((theme) => ({
     parent: {
         display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap'
+        flexDirection: 'column'
     },
     IngredientsTitle:{
         fontStyle: "italic",

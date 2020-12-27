@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import {Grid, div} from '@material-ui/core';
+import {Grid, Button} from '@material-ui/core';
 
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -26,7 +26,7 @@ const RoundedCornerTag = ({tagName, tagColor,...props}) => {
     const classes = useStyles();
 
     return(
-        <div {...props} style={{
+        <Button {...props} style={{
             backgroundColor: tagColor ? tagColor : 'white'
         }}>
             <Grid container item xs={12} justify='center' className={classes.parent}>
@@ -34,7 +34,7 @@ const RoundedCornerTag = ({tagName, tagColor,...props}) => {
                     {tagName? tagName : 'Tên tag'}
                 </Typography>
             </Grid>
-        </div>
+        </Button>
     );
 }
 

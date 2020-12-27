@@ -11,8 +11,6 @@ import $ from 'jquery';
 const useStyles = makeStyles((theme) => ({
     parent: {
         display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap'
     },
     descriptionTitle:{
         fontStyle: "italic",
@@ -87,7 +85,7 @@ export const PizzaDescription = ({pizzaDescription}) => {
         <Grid container item xs={12} className={classes.parent} style={{
             flexDirection: 'row',
         }}>
-            <Grid container item xs={10} >
+            <Grid container item xs={10}>
                 <Typography color='textPrimary' align='center' variant="h6" className={classes.descriptionTitle}>
                     Mô tả
                 </Typography>
@@ -98,7 +96,6 @@ export const PizzaDescription = ({pizzaDescription}) => {
                 <svg id={PizzaDescription_Line_Canvas} style={{
                     position: 'absolute',
                     width: "100%",
-                    zIndex: -100,
                 }} overflow="visible">
                     <line id={DescriptionBox_PizzaImg_Id1} style={{
                         strokeWidth: 5,

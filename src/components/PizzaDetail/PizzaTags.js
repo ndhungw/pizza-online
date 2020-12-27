@@ -12,8 +12,7 @@ import RoundedCornerTag from '../RoundedCornerTag/RoundedCornerTag';
 const useStyles = makeStyles((theme) => ({
     parent: {
         display: 'flex',
-        flexDirection: 'column',
-        flexWrap: 'wrap'
+        width: '100%'
     },
     TagsTitle:{
         fontStyle: "italic",
@@ -85,7 +84,7 @@ export const PizzaTags = ({pizzaTags}) => {
 
     return(
         <Grid container item xs={12} className={classes.parent} style={{
-            flexDirection: 'row',
+            flexDirection: 'row'
         }}>
             <Grid container item xs={10} >
                 <Typography color='textPrimary' align='center' variant="h6" className={classes.TagsTitle}>
@@ -97,8 +96,7 @@ export const PizzaTags = ({pizzaTags}) => {
             }}>
                 <svg id={PizzaTags_Line_Canvas} style={{
                     position: 'absolute',
-                    width: "100%",
-                    zIndex: -100,
+                    width: "100%"
                 }} overflow="visible">
                     <line id={TagsBox_PizzaImg_Id1} style={{
                         strokeWidth: 5,

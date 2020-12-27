@@ -7,6 +7,14 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Link from '@material-ui/core/Link';
 import Cart from './pages/Cart';
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Filter from "./components/Filter/Filter";
+import PizzaCard from "./components/CustomPizzaCard/PizzaCard";
+import SearchBar from "./components/SearchBar/SearchBar";
+
+// views
+import Menu from "./pages/Menu";
+import PizzaDetail from "./pages/PizzaDetail";
 
 function Copyright() {
   return (
@@ -31,11 +39,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function App() {
   const classes = useStyles();
 
   return (
-    <React.Fragment>
+    <>
+      {/* App bar */}
+
+      <Router>
+      <React.Fragment>
       <CssBaseline />
       <AppBar position="relative">
         <Toolbar>
@@ -47,7 +60,25 @@ function App() {
       </AppBar>
       <main>
         {/* The page content here */}
-        <Cart></Cart>
+        <Switch>
+          <Route path="/menu">
+            <Menu />
+          </Route>
+          <Route path="/pizza-detail">
+            <PizzaDetail />
+          </Route>
+
+          {/* Test components */}
+          <Route path="/components/search-bar">
+            <SearchBar />
+          </Route>
+          <Route path="/components/filter">
+            <Filter />
+          </Route>
+          <Route path="/components/pizza-card">
+            <PizzaCard />
+          </Route>
+        </Switch>
 
       </main>
       {/* Footer */}
@@ -62,6 +93,11 @@ function App() {
       </footer>
       {/* End footer */}
     </React.Fragment>
+        
+      </Router>
+
+      {/* Footer */}
+    </>
   );
 }
 

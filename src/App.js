@@ -16,12 +16,17 @@ import HomePage from "./pages/HomePage";
 import Cart from "./pages/Cart";
 
 const useStyles = makeStyles((theme) => ({
+  root: {
+    display: "flex",
+    flexDirection: "column",
+    minHeight: "100vh",
+  },
   icon: {
     marginRight: theme.spacing(2),
   },
   footer: {
     backgroundColor: theme.palette.background.paper,
-    position: "relative",
+    marginTop: "auto",
   },
 }));
 
@@ -31,41 +36,43 @@ function App() {
   return (
     <Router>
       <CssBaseline />
-      <Header />
-      <main>
-        {/* The page content here */}
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Switch>
-          <Route path="/home">
+      <div className={classes.root}>
+        <Header />
+        <main>
+          {/* The page content here */}
+          <Route exact path="/">
             <HomePage />
           </Route>
-          <Route path="/menu">
-            <Menu />
-          </Route>
-          <Route path="/pizza-detail">
-            <PizzaDetail />
-          </Route>
-          <Route path="/cart">
-            <Cart />
-          </Route>
+          <Switch>
+            <Route path="/home">
+              <HomePage />
+            </Route>
+            <Route path="/menu">
+              <Menu />
+            </Route>
+            <Route path="/pizza-detail">
+              <PizzaDetail />
+            </Route>
+            <Route path="/cart">
+              <Cart />
+            </Route>
 
-          {/* Test components */}
-          <Route path="/components/search-bar">
-            <SearchBar />
-          </Route>
-          <Route path="/components/filter">
-            <Filter />
-          </Route>
-          <Route path="/components/pizza-card">
-            <PizzaCard />
-          </Route>
-        </Switch>
-      </main>
-      <footer className={classes.footer}>
-        <Footer />
-      </footer>
+            {/* Test components */}
+            <Route path="/components/search-bar">
+              <SearchBar />
+            </Route>
+            <Route path="/components/filter">
+              <Filter />
+            </Route>
+            <Route path="/components/pizza-card">
+              <PizzaCard />
+            </Route>
+          </Switch>
+        </main>
+        <footer className={classes.footer}>
+          <Footer />
+        </footer>
+      </div>
     </Router>
   );
 }

@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-// Material-ui core
+import React from "react";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -9,24 +8,9 @@ import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounded";
-// react-router-dom
-import { NavLink } from "react-router-dom";
-// From this project
-import pizzaImgUrl from "../../assets/img/pizzaImg.png";
-import SimpleSelect from "./SimpleSelect";
+
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 300,
-  },
-  name: {
-    textDecoration: "none",
-    color: "inherit",
-  },
-  price: {
-    color: "red",
-    fontWeight: "bold",
-  },
   cardActions: {
     display: "flex",
     justifyContent: "space-between",
@@ -41,60 +25,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function PizzaCard({ name, price }) {
+export default function IngreCard({ name, price, image}) {
   const classes = useStyles();
-  const sizeOptions = ["Nhỏ", "Vừa", "Lớn"];
-  const crustOptions = ["Dày", "Giòn"];
-  const [sizeOption, setSizeOption] = useState(0);
-  const [crustOption, setCrustOption] = useState(0);
 
   return (
-    <Card className={classes.root}>
+    <Card class="contentCenter">
       <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="pizza image"
-          height="280"
-          image={pizzaImgUrl}
+        <CardMedia component="img" alt="pizza image" height="280" image={image}
         />
       </CardActionArea>
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="h2"
-          className={classes.name}
-        >
-          <NavLink to={`/pizzas/${name}`} className={classes.name}>
-            {name}
-          </NavLink>
-          {name}
-        </Typography>
-        <Typography gutterBottom className={classes.price}>
-          {price},000 đ
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Mô tả chiếc bánh này
-        </Typography>
+      <CardContent class="contentCenter">
+        <Typography gutterBottom variant="h6" component="h2" class="name"> {name} </Typography>
+        <Typography gutterBottom class="price"> {price}.000đ/50g</Typography>
       </CardContent>
-      <CardActions className={classes.cardActions}>
-        <SimpleSelect
-          label="Kích cỡ"
-          defaultOptionValue={sizeOption}
-          options={sizeOptions}
-          setOption={setSizeOption}
-        />
-        <SimpleSelect
-          defaultOptionValue={crustOption}
-          label="Đế bánh"
-          options={crustOptions}
-          setOption={setCrustOption}
-        />
-        <Button
-          className={classes.addCardButton}
-          variant="contained"
-          size="large"
-        >
+      <CardActions class="cardActions">
+        <Button className={classes.addCardButton} variant="contained" size="large" >
           <AddShoppingCartRoundedIcon className={classes.addCartIcon} />
         </Button>
       </CardActions>

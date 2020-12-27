@@ -15,6 +15,7 @@ import SearchBar from "./components/SearchBar/SearchBar";
 // views
 import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";
+import Header from './components/Header';
 
 function Copyright() {
   return (
@@ -50,14 +51,7 @@ function App() {
       <Router>
       <React.Fragment>
       <CssBaseline />
-      <AppBar position="relative">
-        <Toolbar>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-            Pizza Company
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Header></Header>
       <main>
         {/* The page content here */}
         <Switch>

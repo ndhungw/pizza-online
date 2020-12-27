@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -44,17 +44,9 @@ const StyledTableRow = withStyles((theme) => ({
 
 
 
-function createData(name, size, crust, price, count) {
-  return { name, size, crust, price, count };
-}
 
-const rows = [
-  createData('Pizza', "Lớn", "Dày", 150000, 10),
-  createData('Pizza Đặc Biệt', "Lớn", "Dày", 150000, 3),
 
-];
-
-export default function CartTable() {
+export default function CartTable({ cartData, setCount }) {
   const classes = useStyles();
 
   return (
@@ -72,7 +64,7 @@ export default function CartTable() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
+          {cartData.map((row, index) => (
             <StyledTableRow key={row.name}>
               <TableCell style={{ color: 'white' }} component="th" scope="row">
                 {row.name}
@@ -85,7 +77,7 @@ export default function CartTable() {
               <TableCell style={{ color: 'white' }} align="right">{row.price}</TableCell>
               <TableCell style={{ color: 'white' }} align="center">
                 <div>
-                  <IconButton>
+                  <IconButton onClick={() => setCount(index, 1)}>
                     <AddCircleOutlineIcon style={{ color: 'white' }}></AddCircleOutlineIcon>
                   </IconButton>
                   {/* <TextField
@@ -98,7 +90,7 @@ export default function CartTable() {
                     inputProps={{ min: 0, style: { textAlign: 'center', backgroundColor: 'white', borderRadius: 30 } }}
                     value={row.count}>
                   </InputBase>
-                  <IconButton>
+                  <IconButton onClick={() => setCount(index, -1)}>
                     <RemoveCircleOutlineIcon style={{ color: 'white' }}></RemoveCircleOutlineIcon>
                   </IconButton>
                 </div>

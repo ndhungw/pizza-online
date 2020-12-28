@@ -128,8 +128,9 @@ export default function Menu() {
   const [sizeOption, setSizeOption] = useState("Nhỏ");
   const [crustOption, setCrustOption] = useState("Dày");
   const [weight, setWeight] = useState(300);
+  //style={{ top: 5, height: "80px" }} t xoa cai nay khoi cai Grid root de no khong bay lo lung nua
   return (
-        <Grid container xs={12} style={{ top: 5, height: "80px" }} >
+        <Grid container xs={12} >
                 <Grid xs={1}></Grid>
                 <Grid xs={7} style={{}} >
                     <br/>
@@ -166,7 +167,7 @@ export default function Menu() {
                 <Grid xs={3} >
                     <br/><br/>
                     <div style={{position: "fixed", width:"400px"}}>
-                    <Tray style={{position: "fixed"}} sizeOption={sizeOption} setSizeOption={setSizeOption} setWeight={setWeight} crustOption={crustOption} setCrustOption={setCrustOption}/>
+                      <Tray style={{position: "fixed"}} sizeOption={sizeOption} setSizeOption={setSizeOption} setWeight={setWeight} crustOption={crustOption} setCrustOption={setCrustOption}/>
                     </div>
                 </Grid>
         </Grid>

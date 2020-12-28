@@ -37,7 +37,7 @@ function ComboItem(props){
                 <p style={{color:textColor,flexWrap:'wrap',fontStyle:'italic',opacity:0.7}} >{combo.duration}</p>
             </div>
             <div style={{width:'70%',height:'30%',display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-                <ButtonBase>
+                <ButtonBase href="/sale">
                     <div style={{borderRadius:20,paddingVertical:10,paddingInline:20,backgroundColor:'#fed400'}}>
                         <p style={{fontWeight: 'bold',color:'black'}}>Thông tin khuyến mãi</p>
                     </div>
@@ -56,7 +56,7 @@ export default function ComboList(props) {
                 <p style={{fontWeight: 'bold',color:textColor,fontSize:20}} >COMBO - KHUYẾN MÃI</p>
             </span>
             <div style={{backgroundColor:backgroundColor,display:'flex',minHeight:100,paddingBottom:30,flexDirection:'row',alignItems:'center',justifyContent:'flex-end',width:'100%'}} >
-                <ButtonBase>
+                <ButtonBase  href="/sales">
                     <p style={{fontWeight: 'bold',color:textColor,marginRight:20}} >Tất cả khuyến mãi</p>
                 </ButtonBase>
             </div>

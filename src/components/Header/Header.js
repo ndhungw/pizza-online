@@ -48,7 +48,7 @@ const Header = () => {
         <ButtonBase className={classes.appBarItem} href="/menu">
           Menu
         </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/pizza-make">
+        <ButtonBase className={classes.appBarItem} href="/make-pizza">
           Tự Làm Bánh
         </ButtonBase>
         <ButtonBase className={classes.appBarItem} href="/sales">

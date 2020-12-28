@@ -117,7 +117,7 @@ function PizzaCard({ name, price }) {
   const [crustOption, setCrustOption] = useState(0);
   return (
     <Card className={classes.card}>
-      <CardActionArea>
+      <CardActionArea href="/pizza-detail">
         <CardMedia
           component="img"
           alt="pizza image"
@@ -139,7 +139,7 @@ function PizzaCard({ name, price }) {
           color="inherit"
           className={classes.name}
         >
-          <NavLink to={`/pizzas/${name}`} className={classes.name}>
+          <NavLink to={`/pizza-detail`} className={classes.name}>
             {name}
           </NavLink>
           {name}
@@ -208,7 +208,7 @@ export default function PizzaList(props) {
           width: "100%",
         }}
       >
-        <ButtonBase>
+        <ButtonBase href="/menu">
           <p style={{ fontWeight: "bold", color: textColor, marginRight: 20 }}>
             Tất cả sản phẩm
           </p>

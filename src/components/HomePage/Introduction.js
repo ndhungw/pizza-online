@@ -74,6 +74,10 @@ const useStyles = makeStyles((theme) => ({
     opacity: 0.4,
     transition: theme.transitions.create("opacity"),
   },
+  slideSkeletonView: {
+    width: 500,
+    height: (typeof window !== "undefined" ? (window.innerHeight * 3) / 5 : 450)+50,
+  }
 }));
 
 export default function Introduction(props) {
@@ -86,7 +90,7 @@ export default function Introduction(props) {
   const [slideDirection, setSlideDirection] = useState("left");
 
   useEffect(() => {
-    setTimer(10);
+    setTimer(5);
   }, []);
 
   const changeImage = (image) => {
@@ -122,7 +126,7 @@ export default function Introduction(props) {
   return (
     <div className={classes.root}>
       {check ? (
-        <Slide in={check} direction={slideDirection} mountOnEnter>
+        <Slide in={check} direction={slideDirection}>
           <div className={classes.carouselContainer}>
             {images.map((image, index) => (
               <>
@@ -182,7 +186,7 @@ export default function Introduction(props) {
           </div>
         </Slide>
       ) : (
-        <></>
+        <div className={classes.slideSkeletonView}></div>
       )}
 
       <div className={classes.dotContainer}>

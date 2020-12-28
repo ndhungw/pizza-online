@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css?family=Damion');
+/* @import url('https://fonts.googleapis.com/css?family=Arial'); */
+.contentCenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   }
+
+.root {
+    width: 100;
+  }
+
+.name {
+    text-decoration: none;
+    color: inherit;
+    font-weight: bold;
+  }
+
+.price {
+    color: red;
+    font-weight: bold;
+  }
+
+.cardActions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+.addCardButton {
+    background-color: #FED400;
+    height: 55px;
+  }
+
+.addCartIcon {
+    color: #272B37;
+  }
+
+.tray {
+ min-height: 650px;
+ height: auto;
+ background-color: #E7E7E7;
+ border-radius: 15px
+}

@@ -167,7 +167,7 @@ export default function Menu() {
                 <Grid xs={3} >
                     <br/><br/>
                     <div style={{position: "fixed", width:"400px"}}>
-                      <Tray style={{position: "fixed"}} sizeOption={sizeOption} setSizeOption={setSizeOption} setWeight={setWeight} crustOption={crustOption} setCrustOption={setCrustOption}/>
+                      <Tray sizeOption={sizeOption} setSizeOption={setSizeOption} setWeight={setWeight} crustOption={crustOption} setCrustOption={setCrustOption}/>
                     </div>
                 </Grid>
         </Grid>

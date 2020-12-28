@@ -47,7 +47,7 @@ export default function Tray({sizeOption, crustOption, setSizeOption, setCrustOp
     setWeight(500)
 
   return (
-    <Card class="tray">
+    <Card class="tray" style={{ overflow:"scroll", maxHeight:window.innerHeight-100 }}>
         <br/>
         <Grid xs={12} class="contentCenter" style={{fontFamily: "Damion", color: "#D2112D", fontSize:"50px"}}>
             Pizza
@@ -81,11 +81,11 @@ export default function Tray({sizeOption, crustOption, setSizeOption, setCrustOp
         <Grid container xs={12} style={{ fontSize:"20px"}}>
             <Grid xs={1}/>
             <Grid xs={3}>Số lượng:</Grid>
-            <Grid xs={8}><Increment style={{width:"50px"}} amount={amount} setAmount={setAmount}/></Grid>
+            <Grid xs={8}><Increment amount={amount} setAmount={setAmount}/></Grid>
         </Grid>
         <br/><br/><br/>
         <Grid xs={12} style={{fontWeight: "bold", fontSize:"20px"}} class="contentCenter">
-           Tổng tiền: {total}.000đ
+            Tổng tiền: {total}.000đ
         </Grid>
         <br/>
         <Grid xs={12} style={{fontWeight: "bold", fontSize:"20px"}} class="contentCenter">

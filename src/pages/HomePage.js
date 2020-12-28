@@ -92,19 +92,19 @@ const pizzas = [
 ];
 const useStyles = makeStyles((theme) => ({
     root: {
-        display: 'flex',
+      display: 'flex'
     },
     content: {
-        flexGrow: 1,
-        overflow: 'auto',
+      flexGrow:1,
+      overflow: 'hidden'
     },
     appBarSpacer: theme.mixins.toolbar,
     container: {
-        paddingTop: theme.spacing(6),
-        paddingBottom: theme.spacing(4),
-        paddingLeft: theme.spacing(4),
-        paddingRight: theme.spacing(4),
-        flexDirection:'column'
+      paddingTop: theme.spacing(6),
+      paddingBottom: theme.spacing(4),
+      paddingLeft: theme.spacing(4),
+      paddingRight: theme.spacing(4),
+      flexDirection:'column'
     }
 }));
 

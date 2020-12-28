@@ -117,7 +117,7 @@ export default function Introduction(props) {
         clearTimeout(timeOut);
       };
     }
-  }, [timer, images.length, selectedImage]);
+  }, [timer]);
 
   useEffect(() => {
     setCheck(true);
@@ -199,7 +199,7 @@ export default function Introduction(props) {
                   height: 10,
                   marginInline: 10,
                   borderRadius: 10,
-                  backgroundColor: "black",
+                  backgroundColor: "#033A56",
                 }}
               />
             ) : (
@@ -215,7 +215,8 @@ export default function Introduction(props) {
                     height: 10,
                     marginInline: 10,
                     borderRadius: 10,
-                    backgroundColor: "grey",
+                    backgroundColor: "#033A56",
+                    opacity: 0.5
                   }}
                 />
               </ButtonBase>

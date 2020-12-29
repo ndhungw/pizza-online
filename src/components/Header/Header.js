@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 const Header = () => {
   const classes = useStyles();
   return (
-    <AppBar position="relative" className={classes.appBar}>
+    <AppBar positionFixed className={classes.appBar}>
       <Toolbar>
         <img src={Logo} alt="pizza company logo" width="30" height="30"></img>
         <ButtonBase

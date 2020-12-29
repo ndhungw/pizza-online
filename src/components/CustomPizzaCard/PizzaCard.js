@@ -50,33 +50,32 @@ export default function PizzaCard({ name, price }) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="pizza image"
-          height="280"
-          image={pizzaImgUrl}
-        />
-      </CardActionArea>
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="h2"
-          className={classes.name}
-        >
-          <NavLink to={`/pizza-detail`} className={classes.name}>
+      <NavLink to={`/pizza-detail`} className={classes.name}>
+        <CardActionArea>
+          <CardMedia
+            component="img"
+            alt="pizza image"
+            height="280"
+            image={pizzaImgUrl}
+          />
+        </CardActionArea>
+        <CardContent>
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="h2"
+            className={classes.name}
+          >
             {name}
-          </NavLink>
-          {name}
-        </Typography>
-        <Typography gutterBottom className={classes.price}>
-          {price},000 đ
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Mô tả chiếc bánh này
-        </Typography>
-      </CardContent>
+          </Typography>
+          <Typography gutterBottom className={classes.price}>
+            {price},000 đ
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            Mô tả chiếc bánh này
+          </Typography>
+        </CardContent>
+      </NavLink>
       <CardActions className={classes.cardActions}>
         <SimpleSelect
           label="Kích cỡ"

@@ -16,8 +16,8 @@ import pizzaImgUrl from "../../assets/img/pizzaImg.png";
 import SimpleSelect from "./SimpleSelect";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 300,
+  cardContent: {
+    padding: theme.spacing(1, 3, 0, 3),
   },
   name: {
     textDecoration: "none",
@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   cardActions: {
     display: "flex",
     justifyContent: "space-between",
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(0, 3, 2, 3),
   },
   addCardButton: {
     backgroundColor: "#FED400",
@@ -52,14 +52,9 @@ export default function PizzaCard({ name, price }) {
     <Card className={classes.root}>
       <NavLink to={`/pizza-detail`} className={classes.name}>
         <CardActionArea>
-          <CardMedia
-            component="img"
-            alt="pizza image"
-            height="280"
-            image={pizzaImgUrl}
-          />
+          <CardMedia component="img" alt="pizza image" image={pizzaImgUrl} />
         </CardActionArea>
-        <CardContent>
+        <CardContent className={classes.cardContent}>
           <Typography
             gutterBottom
             variant="h6"
@@ -72,7 +67,7 @@ export default function PizzaCard({ name, price }) {
             {price},000 đ
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Mô tả chiếc bánh này
+            {"Mô tả chiếc bánh này một cách chi tiết kĩ lưỡng nhất có thể"}
           </Typography>
         </CardContent>
       </NavLink>

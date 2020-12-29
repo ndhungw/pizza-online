@@ -49,45 +49,29 @@ const items = [
     name: "ABC2",
     price: "123",
   },
-  {
-    name: "ABC3",
-    price: "123",
-  },
-  {
-    name: "ABC1",
-    price: "123",
-  },
 ];
 
 export default function Menu() {
   const classes = useStyles();
   return (
-    <div className={classes.root}>
-      <Container component="main" maxWidth="lg">
-        <div className={classes.searchAndFilter}>
-          <SearchBar className={classes.searchBar} />
-          <Filter />
-        </div>
-        <Grid
-          container
-          direction="row"
-          justify="center"
-          spacing={3}
-          maxWidth="lg"
-        >
-          {items.map((item, index) => {
-            return (
-              <Grid item key={index}>
-                <PizzaCard
-                  className={classes.pizzaCard}
-                  name={item.name}
-                  price={item.price}
-                />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Container>
-    </div>
+    <Container maxWidth="lg" className={classes.container}>
+      <div className={classes.searchAndFilter}>
+        <SearchBar className={classes.searchBar} />
+        <Filter />
+      </div>
+      <Grid container spacing={7} className={classes.gridContainer}>
+        {items.map((item, index) => {
+          return (
+            <Grid item key={index} xs={12} sm={6} md={4}>
+              <PizzaCard
+                className={classes.pizzaCard}
+                name={item.name}
+                price={item.price}
+              />
+            </Grid>
+          );
+        })}
+      </Grid>
+    </Container>
   );
 }

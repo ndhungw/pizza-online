@@ -12,11 +12,7 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: theme.spacing(10),
   },
   searchAndFilter: {
-    // display: "flex",
     margin: theme.spacing(4, 0, 4, 0),
-    // justifyContent: "space-between",
-    // justifyContent: "center",
-    // flexWrap: "wrap",
   },
 }));
 
@@ -67,15 +63,21 @@ export default function Menu() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Container component="main" maxWidth="md">
+      <Container component="main" maxWidth="lg">
         <div className={classes.searchAndFilter}>
           <SearchBar className={classes.searchBar} />
           <Filter />
         </div>
-        <Grid container spacing={3} maxWidth="md">
+        <Grid
+          container
+          direction="row"
+          justify="center"
+          spacing={3}
+          maxWidth="lg"
+        >
           {items.map((item, index) => {
             return (
-              <Grid item key={index} xs={12} sm={6} md={4}>
+              <Grid item key={index}>
                 <PizzaCard
                   className={classes.pizzaCard}
                   name={item.name}

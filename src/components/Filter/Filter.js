@@ -17,6 +17,13 @@ const useStyles = makeStyles((theme) => ({
   },
   button: {
     margin: theme.spacing(0, 0.5),
+    fontWeight: "bold",
+  },
+  optionButtonClicked: {
+    margin: theme.spacing(0, 0.5),
+    backgroundColor: "#FED400",
+    color: "#3B3F49",
+    fontWeight: "bold",
   },
   buttonsList: {
     margin: theme.spacing(0, 1),
@@ -24,66 +31,100 @@ const useStyles = makeStyles((theme) => ({
 }));
 export default function Filter() {
   const classes = useStyles();
+  // Tag order options
+  const [isPopularClicked, setIsPopularClicked] = useState(true);
+  const [isLatestClicked, setIsLatestClicked] = useState(false);
+  const [isBestSellerClicked, setIsBestSellerClicked] = useState(false);
+  // Price order options
+  const [fromLowToHighClicked, setFromLowToHighClicked] = useState(true);
+  const [fromHighToLowClicked, setFromHighToLowClicked] = useState(false);
 
-  // Size options
-  const [isSmallSizeClicked, setIsSmallSizeClicked] = useState(true);
-  const [isMediumSizeClicked, setIsMediumSizeClicked] = useState(false);
-  const [isLargeSizeClicked, setIsLargeSizeClicked] = useState(false);
-  // Crust options
-  const [isThickCrustClicked, setIsThickCrustClicked] = useState(true);
-  const [isThinCrustClicked, setIsThinCrustClicked] = useState(false);
+  const handlePopularButton = () => {
+    setIsPopularClicked(true);
+    setIsLatestClicked(false);
+    setIsBestSellerClicked(false);
+  };
+  const handleLatestButton = () => {
+    setIsLatestClicked(true);
+    setIsPopularClicked(false);
+    setIsBestSellerClicked(false);
+  };
+  const handleBestSellerButton = () => {
+    setIsBestSellerClicked(true);
+    setIsPopularClicked(false);
+    setIsLatestClicked(false);
+  };
+  const handleLowToHighButton = () => {
+    setFromLowToHighClicked(true);
+    setFromHighToLowClicked(false);
+  };
 
+  const handleHighToLowButton = () => {
+    setFromHighToLowClicked(true);
+    setFromLowToHighClicked(false);
+  };
   return (
     <>
       <Paper className={classes.filter}>
         <div className={classes.filterItem}>
-          <Typography>Kích thước</Typography>
+          <Typography>{"Sắp xếp theo"}</Typography>
           <div className={classes.buttonsList}>
             <Button
-              onClick={() => setIsSmallSizeClicked(!isSmallSizeClicked)}
-              className={classes.button}
+              onClick={handlePopularButton}
+              className={`${
+                isPopularClicked ? classes.optionButtonClicked : classes.button
+              }`}
               variant="contained"
-              color={isSmallSizeClicked ? "primary" : "secondary"}
             >
-              {"Nhỏ"}
+              {"Phổ biến"}
             </Button>
             <Button
-              onClick={() => setIsMediumSizeClicked(!isMediumSizeClicked)}
-              className={classes.button}
+              onClick={handleLatestButton}
               variant="contained"
-              color={isMediumSizeClicked ? "primary" : "secondary"}
+              className={`${
+                isLatestClicked ? classes.optionButtonClicked : classes.button
+              }`}
             >
-              {"Vừa"}
+              {"Mới nhất"}
             </Button>
             <Button
-              onClick={() => setIsLargeSizeClicked(!isLargeSizeClicked)}
-              className={classes.button}
+              onClick={handleBestSellerButton}
+              className={`${
+                isBestSellerClicked
+                  ? classes.optionButtonClicked
+                  : classes.button
+              }`}
               variant="contained"
-              color={isLargeSizeClicked ? "primary" : "secondary"}
             >
-              {"Lớn"}
+              {"Bán chạy"}
             </Button>
           </div>
         </div>
 
         <div className={classes.filterItem}>
-          <Typography>Loại đế</Typography>
+          <Typography>{"Thứ tự giá"}</Typography>
           <div className={classes.buttonsList}>
             <Button
-              onClick={() => setIsThickCrustClicked(!isThickCrustClicked)}
-              className={classes.button}
+              onClick={handleLowToHighButton}
               variant="contained"
-              color={isThickCrustClicked ? "primary" : "secondary"}
+              className={`${
+                fromLowToHighClicked
+                  ? classes.optionButtonClicked
+                  : classes.button
+              }`}
             >
-              {"Dày"}
+              {"Từ thấp đến cao"}
             </Button>
             <Button
-              onClick={() => setIsThinCrustClicked(!isThinCrustClicked)}
-              className={classes.button}
+              onClick={handleHighToLowButton}
               variant="contained"
-              color={isThinCrustClicked ? "primary" : "secondary"}
+              className={`${
+                fromHighToLowClicked
+                  ? classes.optionButtonClicked
+                  : classes.button
+              }`}
             >
-              {"Giòn"}
+              {"Từ cao đến thấp"}
             </Button>
           </div>
         </div>

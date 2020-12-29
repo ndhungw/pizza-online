@@ -65,7 +65,7 @@ export default function PizzaCard({ name, price }) {
           component="h2"
           className={classes.name}
         >
-          <NavLink to={`/pizzas/${name}`} className={classes.name}>
+          <NavLink to={`/pizza-detail`} className={classes.name}>
             {name}
           </NavLink>
           {name}

@@ -6,7 +6,8 @@ import SelectSize from "./SelectSize";
 import SelectCrust from "./SelectCrust";
 import Increment from "./IncreDecrePizza";
 import Table from "./IngreTable";
-
+import AddIcon from '@material-ui/icons/Add';
+import Equal from "../../assets/img/equal.png";
 export default function Tray({
   sizeOption,
   crustOption,
@@ -60,7 +61,7 @@ export default function Tray({
       <br />
       <Grid container xs={12}>
         <Grid xs={1} />
-        <Grid xs={3}>
+        <Grid xs={3} class="contentCenter">
           <SelectSize
             label="Kích cỡ"
             sizeOption={sizeOption}
@@ -69,8 +70,8 @@ export default function Tray({
             priceS={priceS}
           />
         </Grid>
-        <Grid xs={1} />
-        <Grid xs={3}>
+        <Grid xs={1} class="contentCenter"><AddIcon  style={{marginTop: "15px", marginLeft:"5px", marginRight: "5px"}}/></Grid>
+        <Grid xs={3} class="contentCenter">
           <SelectCrust
             label="Đế bánh"
             crustOption={crustOption}
@@ -79,9 +80,10 @@ export default function Tray({
             priceC={priceC}
           />
         </Grid>
-        <Grid xs={3}>
-          <Grid xs={12} class="contentCenter" style={{ fontSize: "18px" }}>
-            <div>Thành tiền</div>
+        <Grid xs={1} class="contentCenter"><img src={Equal} style={{width: "20px", height: "20px", marginTop: "15px", marginLeft: "10px"}}/></Grid>
+        <Grid xs={3} class="contentCenter">
+          <Grid xs={12} class="contentCenter" style={{ fontSize: "18px", marginLeft:"10px", marginTop: "12px" }}>
+            {/* <div>Thành tiền</div> */}
             <div>{priceSC}.000đ</div>
           </Grid>
         </Grid>

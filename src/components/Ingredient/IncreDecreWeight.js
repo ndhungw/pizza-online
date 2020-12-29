@@ -20,7 +20,7 @@ const IncrementDecrementBox = ({id, weight, Ingredient, setIngredient}) => {
     }
     return(
         <Grid container item xs={12} style={{width:"100px"}}>
-                <SvgIcon style={{width: "20px"}} viewBox="0 0 180 250" fill="none" onClick={setDecrementValue} >
+                <SvgIcon style={{width: "20px"}} viewBox="0 0 200 200" fill="none" onClick={setDecrementValue} >
                     <path d="M94.5 0C42.3969 0 0 42.3895 0 94.5C0 146.61 42.3969 189 94.5 189C146.61 189 189 146.61 189 94.5C189 42.3895 146.603 0 94.5 0ZM94.5 174.36C50.4634 174.36 14.6397 138.537 14.6397 94.5C14.6397 50.4634 50.4634 14.6397 94.5 14.6397C138.537 14.6397 174.36 50.4634 174.36 94.5C174.36 138.537 138.537 174.36 94.5 174.36Z" fill="white"/>
                     <path d="M131.1 86.5214H57.9006C53.86 86.5214 50.5806 89.8008 50.5806 93.8414C50.5806 97.882 53.86 101.161 57.9006 101.161H131.1C135.14 101.161 138.42 97.882 138.42 93.8414C138.42 89.8008 135.14 86.5214 131.1 86.5214Z" fill="white"/>
                 </SvgIcon>

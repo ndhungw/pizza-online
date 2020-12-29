@@ -48,3 +48,9 @@
   background-color: #d2112d;
   font-size: 13px;
 }
+
+.alignIcon {
+  margin-top: 15px;
+  margin-left: 5px;
+  /* margin-right: 5px */
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../App.css";
 import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 // import SimpleSelect from "../components/CustomPizzaCard/SimpleSelect";
 import List from "../components/Ingredient/IngreList";
 import Tray from "../components/Ingredient/Tray";
@@ -10,6 +11,7 @@ import Pork from "../assets/img/xongkhoi.jpg";
 import OC from "../assets/img/ot.jpg";
 import Vegt from "../assets/img/rau.jpg";
 import Meat from "../assets/img/bo.jpg";
+
 const HaiSan = [
   {
     id: 1,
@@ -124,7 +126,15 @@ const RauCu = [
     image: Vegt,
   },
 ];
+
+const useStyles = makeStyles((theme) => ({
+  test: {
+    marginTop: theme.spacing(4),
+  },
+}));
+
 export default function Menu() {
+  const classes = useStyles();
   const [sizeOption, setSizeOption] = useState("Nhỏ");
   const [crustOption, setCrustOption] = useState("Dày");
   const [weight, setWeight] = useState(300);
@@ -170,7 +180,10 @@ export default function Menu() {
       </Grid>
       <Grid style={{ width: "50px" }}></Grid>
       <Grid xs={3}>
-        <div style={{ position: "fixed", width: "400px" }}>
+        <div
+          className={classes.test}
+          style={{ position: "fixed", width: "400px" }}
+        >
           <Tray
             sizeOption={sizeOption}
             setSizeOption={setSizeOption}

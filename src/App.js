@@ -22,11 +22,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
     minHeight: "100vh",
   },
+  main: {
+    marginTop: theme.spacing(7),
+  },
   icon: {
     marginRight: theme.spacing(2),
   },
   footer: {
-    backgroundColor: theme.palette.background.paper,
     marginTop: "auto",
   },
 }));
@@ -39,7 +41,7 @@ function App() {
       <CssBaseline />
       <div className={classes.root}>
         <Header />
-        <main>
+        <main className={classes.main}>
           {/* The page content here */}
           <Route exact path="/">
             <HomePage />

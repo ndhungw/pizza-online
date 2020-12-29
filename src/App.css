@@ -1,42 +1,50 @@
-@import url('https://fonts.googleapis.com/css?family=Damion');
+@import url("https://fonts.googleapis.com/css?family=Damion");
 /* @import url('https://fonts.googleapis.com/css?family=Arial'); */
 .contentCenter {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-   }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
 .root {
-    width: 100;
-  }
+  width: 100;
+}
 
 .name {
-    text-decoration: none;
-    color: inherit;
-    font-weight: bold;
-  }
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
 
 .price {
-    color: red;
-    font-weight: bold;
-  }
+  color: red;
+  font-weight: bold;
+}
 
 .cardActions {
-    display: flex;
-    justify-content: space-between;
-  }
+  display: flex;
+  justify-content: space-between;
+}
 
 .addCardButton {
-    background-color: #FED400;
-    height: 55px;
-  }
+  background-color: #fed400;
+  height: 55px;
+}
 
 .addCartIcon {
-    color: #272B37;
-  }
+  color: #272b37;
+}
 
 .tray {
- height: auto;
- background-color: #E7E7E7;
- border-radius: 15px
+  height: 550px;
+  z-index: -100;
+  background-color: #e7e7e7;
+  border-radius: 15px;
+}
+
+.tableCell {
+  color: white;
+  font-weight: bold;
+  background-color: #d2112d;
+  font-size: 13px;
 }

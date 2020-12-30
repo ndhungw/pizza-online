@@ -1,5 +1,5 @@
 import React from "react";
-// import "../../App.css";
+import "../../App.css";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -18,93 +18,97 @@ const useStyles = makeStyles({
     maxWidth: 350,
     borderRadius: 30,
   },
+  TableCell01: {
+    color: "white",
+    fontWeight: "bold",
+    backgroundColor: "#D2112D",
+  },
+  scrollTable: {
+    overflowY: "scroll",
+    height: "200px"
+  },
 });
 
-export default function BasicTable({
-  Ingredient,
-  setIngredient,
-  money,
-  setMoney,
-}) {
+export default function BasicTable({setMoney, Ingredient, setIngredient, maxWeight,  presentTotal, setPresentTotal}) {
   const classes = useStyles();
   let temp = 0;
   for (let i = 0; i < Ingredient.length; i++) {
     temp = temp + (Ingredient[i].weight / 50) * Ingredient[i].price;
   }
   setMoney(temp);
-
+  function findItem(id){
+    for(let i = 0; i< Ingredient.length; i++){
+      if(Ingredient[i].id === id){
+        return Ingredient[i];
+      }
+    }
+  }
+  const onDeleteItem = (id) =>{
+        let ItemDelete = findItem(id);
+        setPresentTotal(presentTotal-ItemDelete.weight)
+        let data = Ingredient.filter((a)=>{
+          return a.id !== ItemDelete.id;
+        })
+        setIngredient([...data]);
+    };
   return (
     <TableContainer
       component={Paper}
-      style={{ overflowY: "scroll", height: "200px" }}
+      className={classes.scrollTable}
     >
       <Table
         className={classes.table}
-        size="small"
         stickyHeader
         aria-label="sticky table"
       >
         <TableHead>
           <TableRow>
             <TableCell
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                backgroundColor: "#D2112D",
-              }}
+              className={classes.TableCell01}
               align="center"
             >
-              Tên
+              Nguyên liệu
             </TableCell>
             <TableCell
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                backgroundColor: "#D2112D",
-              }}
+              className={classes.TableCell01}
               align="center"
             >
               Khối lượng
             </TableCell>
             <TableCell
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                backgroundColor: "#D2112D",
-              }}
+              className={classes.TableCell01}
               align="center"
             >
               Giá
             </TableCell>
             <TableCell
-              style={{
-                color: "white",
-                fontWeight: "bold",
-                backgroundColor: "#D2112D",
-              }}
+             className={classes.TableCell01}
             />
           </TableRow>
         </TableHead>
         <TableBody>
           {Ingredient.map((row) => (
             <TableRow key={row.id} style={{ backgroundColor: "#033A56" }}>
-              <TableCell style={{ color: "white" }} align="center">
+              <TableCell style={{color: "white" }} align="center">
                 {row.name}
               </TableCell>
-              <TableCell style={{ color: "white" }} align="center">
+              <TableCell style={{color: "white" }} align="center">
                 <InDeWeight
                   id={row.id}
                   weight={row.weight}
                   Ingredient={Ingredient}
                   setIngredient={setIngredient}
+                  maxWeight={maxWeight}
+                  presentTotal={presentTotal}
+                  setPresentTotal={setPresentTotal}
                 />
               </TableCell>
-              <TableCell style={{ color: "white" }} align="center">
-                {row.price}.000
+              <TableCell style={{color: "white" }} align="center">
+                {row.price}.000đ/50g
               </TableCell>
               <TableCell>
-                <IconButton size="small">
-                  <HighlightOffIcon style={{ color: "red" }}></HighlightOffIcon>
+                <IconButton size="small" onClick={()=>onDeleteItem(row.id)}>
+                  <HighlightOffIcon style={{color: "red" }}></HighlightOffIcon>
                 </IconButton>
               </TableCell>
             </TableRow>

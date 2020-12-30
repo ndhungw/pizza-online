@@ -13,7 +13,12 @@ export default function Tray({
   crustOption,
   setSizeOption,
   setCrustOption,
-  setWeight,
+  maxWeight,
+  setMaxWeight,
+  Ingredient,
+  setIngredient,
+  presentTotal,
+  setPresentTotal
 }) {
   const [priceSC, setPriceSC] = useState(0);
   const [priceS, setPriceS] = useState(20);
@@ -21,34 +26,17 @@ export default function Tray({
   const [money, setMoney] = useState(0);
   const [total, setTotal] = useState(0);
   const [amount, setAmount] = useState(1);
-  const [Ingredient, setIngredient] = useState([
-    {
-      id: 4,
-      name: "Mực ống",
-      weight: 100,
-      price: 20,
-    },
-    {
-      id: 3,
-      name: "Tôm thẻ",
-      weight: 100,
-      price: 20,
-    },
-    {
-      id: 13,
-      name: "Ớt chuông",
-      weight: 100,
-      price: 20,
-    },
-  ]);
   useEffect(() => {
     setPriceSC(priceS + priceC);
     setTotal((priceSC + money) * amount);
   });
-  if (sizeOption === "Nhỏ") setWeight(300);
-  else if (sizeOption === "Vừa") setWeight(400);
-  else setWeight(500);
-
+  if (sizeOption === "Nhỏ") setMaxWeight(300);
+  else if (sizeOption === "Vừa") setMaxWeight(400);
+  else setMaxWeight(500);
+  const addCart = () => {
+    let data =[];
+    setIngredient([...data]);
+  }
   return (
     <Card class="tray">
       <Grid
@@ -80,19 +68,14 @@ export default function Tray({
             priceC={priceC}
           />
         </Grid>
-        <Grid xs={1} class="contentCenter"><img src={Equal} style={{width: "20px", height: "20px", marginTop: "15px", marginLeft: "10px"}}/></Grid>
+        <Grid xs={1} class="contentCenter"><img src={Equal} style={{width: "20px", height: "20px", marginTop: "15px", marginLeft: "10px"}} alt=""/></Grid>
         <Grid xs={3} class="contentCenter">
           <Grid xs={12} class="contentCenter" style={{ fontSize: "18px", marginLeft:"10px", marginTop: "12px" }}>
-            {/* <div>Thành tiền</div> */}
             <div>{priceSC}.000đ</div>
           </Grid>
         </Grid>
       </Grid>
       <br />
-      {/* <Grid container xs={12} style={{ fontSize: "20px" }}>
-        <Grid xs={1} />
-        <Grid xs={11}>Nhân bánh:</Grid>
-      </Grid> */}
       <Grid class="contentCenter" xs={12} style={{ fontSize: "20px" }}>
         <div>
           <Table
@@ -100,6 +83,9 @@ export default function Tray({
             setIngredient={setIngredient}
             money={money}
             setMoney={setMoney}
+            maxWeight={maxWeight}
+            presentTotal={presentTotal}
+            setPresentTotal={setPresentTotal}
           />
         </div>
       </Grid>
@@ -126,6 +112,7 @@ export default function Tray({
         class="contentCenter"
       >
         <button
+          onClick={addCart}
           style={{
             height: "40px",
             fontSize: "20px",

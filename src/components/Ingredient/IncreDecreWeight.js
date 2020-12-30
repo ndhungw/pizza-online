@@ -7,16 +7,50 @@ import Grid from '@material-ui/core/Grid';
 import { Box, SvgIcon} from '@material-ui/core';
 
 
-const IncrementDecrementBox = ({id, weight, Ingredient, setIngredient}) => {
+const IncrementDecrementBox = ({id, weight, Ingredient, setIngredient, maxWeight, presentTotal, setPresentTotal}) => {
 
     const [value, setValue] = useState(weight);
-
     const setIncrementValue = () => {
-        setValue(value < Number.MAX_SAFE_INTEGER ? value + 50 : Number.MAX_SAFE_INTEGER);
+        if (presentTotal < maxWeight){
+            setValue(value < Number.MAX_SAFE_INTEGER ? value + 50 : Number.MAX_SAFE_INTEGER);
+            const newList = Ingredient.map((item) => {
+                if (item.id === id) {
+                const updatedItem = {
+                    ...item,
+                    weight: item.weight + 50,
+                };
+                return updatedItem;
+                }
+                return item;
+            });
+            setIngredient(newList);
+            setPresentTotal(presentTotal+50)
+        }
+        else
+            window.alert("Vượt quá giới hạn về khối lượng nhân!")
     }
 
     const setDecrementValue = () => {
-        setValue(value >= 100 ? value - 50 : 0);
+            setValue(value >= 100 ? value - 50 : 0);
+            const newList = Ingredient.map((item) => {
+                if (item.id === id) {
+                const updatedItem = {
+                    ...item,
+                    weight: item.weight-50,
+                };
+                return updatedItem;
+                }
+                return item;
+            });
+            setIngredient(newList);
+            setPresentTotal(presentTotal-50);
+    }
+    if (!value)
+    {
+        let data = Ingredient.filter((a)=>{
+            return a.id !== id;
+        })
+        setIngredient([...data]);
     }
     return(
         <Grid container item xs={12} style={{width:"100px"}}>
@@ -38,7 +72,7 @@ const IncrementDecrementBox = ({id, weight, Ingredient, setIngredient}) => {
                                 fontWeight: 'bold',
                                 color: 'black'
                             }}>
-                                {value}
+                                {value}g
                             </Typography>
                         </Grid>
                     </Box>

@@ -25,21 +25,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IngreCard({ name, price, image}) {
+export default function IngreCard({item, onAddItem}) {
   const classes = useStyles();
+  const temp= {id: item.id, name: item.name, price: item.price, weight: item.weight+50}
 
   return (
     <Card class="contentCenter">
       <CardActionArea>
-        <CardMedia component="img" alt="pizza image" height="280" image={image}
+        <CardMedia component="img" alt="pizza image" height="280" image={item.image}
         />
       </CardActionArea>
       <CardContent class="contentCenter">
-        <Typography gutterBottom variant="h6" component="h2" class="name"> {name} </Typography>
-        <Typography gutterBottom class="price"> {price}.000đ/50g</Typography>
+        <Typography gutterBottom variant="h6" component="h2" class="name"> {item.name} </Typography>
+        <Typography gutterBottom class="price"> {item.price}.000đ/50g</Typography>
       </CardContent>
       <CardActions class="cardActions">
-        <Button className={classes.addCardButton} variant="contained" size="large" >
+        <Button className={classes.addCardButton} variant="contained" size="large" onClick={()=>onAddItem(temp)} >
           <AddShoppingCartRoundedIcon className={classes.addCartIcon} />
         </Button>
       </CardActions>

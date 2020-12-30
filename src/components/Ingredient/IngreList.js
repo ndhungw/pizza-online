@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function IngreList({HaiSan, Thit, RauCu}) {
+export default function IngreList({HaiSan, Thit, RauCu, onAddItem}) {
   const classes = useStyles();
   const [value, setValue] = React.useState(0);
 
@@ -80,10 +80,10 @@ export default function IngreList({HaiSan, Thit, RauCu}) {
       </AppBar>
       <TabPanel value={value} index={0}>
             <Grid container xs={12} spacing={2} >
-            {HaiSan.map((item, index) => {
+            {HaiSan.map((item) => {
                     return (
-                    <Grid item key={index} xs={4}>
-                        <IngreCard className={classes.pizzaCard}  name={item.name} price={item.price} image={item.image}    />
+                    <Grid item key={item.id} xs={4}>
+                        <IngreCard className={classes.pizzaCard}  item={item}  onAddItem={onAddItem}  />
                     </Grid>
                     );
                 })}
@@ -91,10 +91,10 @@ export default function IngreList({HaiSan, Thit, RauCu}) {
       </TabPanel>
       <TabPanel value={value} index={1}>
             <Grid container xs={12} spacing={2}>
-                {Thit.map((item, index) => {
+                {Thit.map((item) => {
                         return (
-                        <Grid item key={index} xs={4}>
-                            <IngreCard className={classes.pizzaCard}  name={item.name}    price={item.price} image={item.image}   />
+                        <Grid item key={item.id} xs={4}>
+                            <IngreCard className={classes.pizzaCard} item={item}  onAddItem={onAddItem}   />
                         </Grid>
                         );
                     })}
@@ -102,10 +102,10 @@ export default function IngreList({HaiSan, Thit, RauCu}) {
       </TabPanel>
       <TabPanel value={value} index={2}>
             <Grid container xs={12} spacing={2}>
-                {RauCu.map((item, index) => {
+                {RauCu.map((item) => {
                         return (
-                        <Grid item key={index} xs={4}>
-                            <IngreCard className={classes.pizzaCard}  name={item.name} price={item.price}  image={item.image}/>
+                        <Grid item key={item.id} xs={4}>
+                            <IngreCard className={classes.pizzaCard}  item={item}  onAddItem={onAddItem}/>
                         </Grid>
                         );
                     })}

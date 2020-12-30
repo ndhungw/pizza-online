@@ -11,8 +11,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function SimpleSelect({
   label,
-  sizeOption, setSizeOption, setPriceS, priceS, onSize
-}) {
+  sizeOption, setSizeOption, setPriceS}) {
   const classes = useStyles();
   const handleChange = (event) => {
     setSizeOption(event.target.value);

@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles((theme) => ({
   parent: {
     display: "flex",
-    backgroundColor: "#3B3F49",
+    backgroundColor: "#005500",
     width: "100%",
     padding: 10,
     marginTop: 30,

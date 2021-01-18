@@ -6,6 +6,7 @@ import ButtonBase from '@material-ui/core/ButtonBase';
 import CardMedia from "@material-ui/core/CardMedia";
 
 const backgroundColor='#C2002F'
+const backgroundColorT = "#660000";
 const textColor='white'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,15 +24,16 @@ const useStyles = makeStyles((theme) => ({
     width:'100%',
     height:'100%',
     flexWrap: 'nowrap',
-    backgroundColor:backgroundColor,
-    overflow:'auto'
+    backgroundColor:backgroundColorT,
+    overflow:'auto',
+    paddingBottom: 10
   }
 }));
 function ComboItem(props){
     const {combo}=props
     return(
-        <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start'}}>
-            <CardMedia component='img' image={combo.img} alt={combo.title} style={{width:'70%',height:'55%'}}/>
+        <div style={{width:'100%',height:'100%',display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'flex-start', backgroundColor:backgroundColor, borderRadius: "5px", spacing:"20px"}}>
+            <CardMedia component='img' image={combo.img} alt={combo.title} style={{width:'70%',height:'55%', marginTop: "20px"}}/>
             <div style={{width:'70%',height:'15%',display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
                 <p style={{fontWeight: 'bold',fontSize:16,marginRight:'20%',textAlign:'start',color:textColor}} >{combo.title}</p>
                 <p style={{color:textColor,flexWrap:'wrap',fontStyle:'italic',opacity:0.7}} >{combo.duration}</p>
@@ -52,10 +54,10 @@ export default function ComboList(props) {
 
     return (
         <div className={classes.root}>
-            <span style={{display:'flex',backgroundColor:backgroundColor,flexDirection:'column',alignItems:'center',justifyContent:'center',marginLeft:'5%',width:'40%',borderTopLeftRadius:20,borderTopRightRadius:20}} >
+            <span style={{display:'flex',backgroundColor:backgroundColorT,flexDirection:'column',alignItems:'center',justifyContent:'center',marginLeft:'5%',width:'40%',borderTopLeftRadius:20,borderTopRightRadius:20}} >
                 <p style={{fontWeight: 'bold',color:textColor,fontSize:20}} >COMBO - KHUYẾN MÃI</p>
             </span>
-            <div style={{backgroundColor:backgroundColor,display:'flex',minHeight:100,paddingBottom:30,flexDirection:'row',alignItems:'center',justifyContent:'flex-end',width:'100%'}} >
+            <div style={{backgroundColor:backgroundColorT,display:'flex', minHeight:80, flexDirection:'row',alignItems:'center',justifyContent:'flex-end',width:'100%'}} >
                 <ButtonBase  href="/sales">
                     <p style={{fontWeight: 'bold',color:textColor,marginRight:20}} >Tất cả khuyến mãi</p>
                 </ButtonBase>
@@ -63,7 +65,12 @@ export default function ComboList(props) {
             <div className={classes.listContainer}>
                 <GridList className={classes.gridList} cols={3.3} cellHeight='auto'>
                     {itemList.map((tile) => (
-                        <GridListTile style={{height:'100%'}}>
+                        <GridListTile style={{
+                height: "100%",
+                display: "flex",
+                flexDirection: "row",
+                justifyContent: "center",spacing: "20px", paddingRight:"5px"
+              }}>
                             <ComboItem combo={tile} />
                         </GridListTile>
                     ))}

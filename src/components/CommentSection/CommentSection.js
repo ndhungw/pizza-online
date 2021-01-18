@@ -78,6 +78,7 @@ const CommentSection = () => {
                 createdDate: new Date()
             });
             setComments(newCommentsList);
+            setCurrentComment("");
         }
     };
 

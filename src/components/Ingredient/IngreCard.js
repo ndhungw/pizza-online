@@ -36,8 +36,8 @@ export default function IngreCard({item, onAddItem}) {
         />
       </CardActionArea>
       <CardContent class="contentCenter">
-        <Typography gutterBottom variant="h6" component="h2" class="name"> {item.name} </Typography>
-        <Typography gutterBottom class="price"> {item.price}.000đ/50g</Typography>
+        <Typography variant="h6" component="h2"> <div class="name"> {item.name} </div></Typography>
+        <Typography> <div class="price">{item.price}.000đ/50g</div></Typography>
       </CardContent>
       <CardActions class="cardActions">
         <Button className={classes.addCardButton} variant="contained" size="large" onClick={()=>onAddItem(temp)} >

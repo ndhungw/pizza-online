@@ -33,13 +33,13 @@ const combos = [
   },
   {
     img: "https://i.imgur.com/tEdj9Wy.jpg",
-    title: "Khuyến mãi Mastercard",
+    title: "Mastercard",
     duration: "Vô thời hạn",
   },
   {
     img:
       "https://www.daily-sun.com/assets/news_images/2019/09/23/Dailysun-2019-04-22-14.jpg",
-    title: "Khuyến mãi tuần đầu",
+    title: "Combo 199k",
     duration: "Vô thời hạn",
   },
   {

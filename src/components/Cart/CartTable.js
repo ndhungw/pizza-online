@@ -49,8 +49,8 @@ export default function CartTable({ cartData, setCount }) {
       <Table className={classes.table} aria-label="simple table" size="small">
         <TableHead>
           <TableRow>
-            <StyledTableCell style={{ borderTopLeftRadius: 30 }}>
-              Tên bánh
+            <StyledTableCell style={{ borderTopLeftRadius: 30}}>
+              <div style={{marginLeft: "20px"}}>Tên bánh</div>
             </StyledTableCell>
             <StyledTableCell align="center">Kích cỡ</StyledTableCell>
             <StyledTableCell align="center">Đế bánh</StyledTableCell>
@@ -65,7 +65,7 @@ export default function CartTable({ cartData, setCount }) {
           {cartData.map((row, index) => (
             <StyledTableRow key={row.name}>
               <TableCell style={{ color: "white" }} component="th" scope="row">
-                {row.name}
+              <div style={{marginLeft: "20px"}}>{row.name}</div>
               </TableCell>
               <TableCell
                 style={{
@@ -83,10 +83,10 @@ export default function CartTable({ cartData, setCount }) {
               </TableCell>
               <TableCell style={{ color: "white" }} align="center">
                 <div>
-                  <IconButton onClick={() => setCount(index, 1)}>
-                    <AddCircleOutlineIcon
+                <IconButton onClick={() => setCount(index, -1)}>
+                    <RemoveCircleOutlineIcon
                       style={{ color: "white" }}
-                    ></AddCircleOutlineIcon>
+                    ></RemoveCircleOutlineIcon>
                   </IconButton>
                   {/* <TextField
                     className={classes.count}
@@ -105,10 +105,10 @@ export default function CartTable({ cartData, setCount }) {
                     }}
                     value={row.count}
                   ></InputBase>
-                  <IconButton onClick={() => setCount(index, -1)}>
-                    <RemoveCircleOutlineIcon
+                    <IconButton onClick={() => setCount(index, 1)}>
+                    <AddCircleOutlineIcon
                       style={{ color: "white" }}
-                    ></RemoveCircleOutlineIcon>
+                    ></AddCircleOutlineIcon>
                   </IconButton>
                 </div>
               </TableCell>

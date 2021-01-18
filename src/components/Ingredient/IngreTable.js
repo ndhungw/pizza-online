@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
   scrollTable: {
     overflowY: "scroll",
-    height: "200px"
+    height: "220px"
   },
 });
 

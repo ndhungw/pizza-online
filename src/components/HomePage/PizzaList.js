@@ -25,6 +25,7 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import pizzaImgUrl from "../../assets/img/pizzaImg.png";
 
 const backgroundColor = "#C2002F";
+const backgroundColorT = "#660000";
 const textColor = "white";
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,14 +44,16 @@ const useStyles = makeStyles((theme) => ({
     width: "100%",
     height: "100%",
     flexWrap: "nowrap",
-    backgroundColor: backgroundColor,
+    backgroundColor: backgroundColorT,
     overflow: "auto",
+    paddingBottom: 10
   },
   //////
   card: {
     maxWidth: 300,
     backgroundColor: backgroundColor,
     paddingBottom: 20,
+    spacing: 20
   },
   name: {
     textDecoration: "none",
@@ -182,7 +185,7 @@ export default function PizzaList(props) {
       <span
         style={{
           display: "flex",
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColorT,
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
@@ -198,7 +201,7 @@ export default function PizzaList(props) {
       </span>
       <div
         style={{
-          backgroundColor: backgroundColor,
+          backgroundColor: backgroundColorT,
           display: "flex",
           minHeight: 80,
           paddingBottom: 10,

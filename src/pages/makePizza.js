@@ -209,8 +209,7 @@ export default function Menu() {
         >
           Làm bánh theo ý thích
         </Grid>
-        <br />
-        <br />
+
         <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
           NHÂN BÁNH:
         </Grid>

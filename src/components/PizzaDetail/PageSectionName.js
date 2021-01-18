@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
     marginBottom: "1%",
   },
   dividerStyle: {
-    width: "70%",
-    maxWidth: "70%",
+    width: "100%",
+    maxWidth: "100%",
     border: "none",
     height: 4,
     backgroundColor: "black",

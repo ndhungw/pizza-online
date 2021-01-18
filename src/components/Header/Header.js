@@ -9,7 +9,7 @@ import Logo from "../../assets/img/logo-website.png";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
-    backgroundColor: "#3B3F49",
+    backgroundColor: "#005500",
   },
   icon: {
     marginRight: theme.spacing(2),

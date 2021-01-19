@@ -35,6 +35,13 @@ const useStyles = makeStyles((theme) => ({
   addCardButton: {
     backgroundColor: "#FED400",
     height: 55,
+
+    transition: theme.transitions.create(["background-color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      backgroundColor: "#ffdf3c",
+    },
   },
   addCartIcon: {
     color: "#272B37",

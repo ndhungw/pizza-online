@@ -46,14 +46,14 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     backgroundColor: backgroundColorT,
     overflow: "auto",
-    paddingBottom: 10
+    paddingBottom: 10,
   },
   //////
   card: {
     maxWidth: 300,
     backgroundColor: backgroundColor,
     paddingBottom: 20,
-    spacing: 20
+    spacing: 20,
   },
   name: {
     textDecoration: "none",
@@ -68,9 +68,23 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-between",
     padding: theme.spacing(1, 2),
   },
+  // addCardButton: {
+  //   backgroundColor: "#FED400",
+  //   height: 55,
+  // },
+  // addCartIcon: {
+  //   color: "#272B37",
+  // },
   addCardButton: {
     backgroundColor: "#FED400",
     height: 55,
+
+    transition: theme.transitions.create(["background-color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      backgroundColor: "#ffdf3c",
+    },
   },
   addCartIcon: {
     color: "#272B37",

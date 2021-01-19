@@ -6,6 +6,7 @@ import { ButtonBase } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 // assets
 import Logo from "../../assets/img/logo-website.png";
+import { NavLink } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -20,10 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 
   appBarItem: {
-    fontStyle: "normal",
-    fontWeight: "normal",
-    fontSize: 16,
     marginLeft: theme.spacing(7),
+    fontSize: 16,
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "#fff",
+
+    transition: theme.transitions.create(["color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      color: "#f3d438",
+    },
+    "&.active": {
+      color: "#f3d438",
+    },
   },
 }));
 
@@ -45,25 +57,26 @@ const Header = () => {
         >
           Pizza Company
         </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/menu">
-          Menu
-        </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/make-pizza">
-          Tự Làm Bánh
-        </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/sales">
-          Khuyến Mãi
-        </ButtonBase>
+        <NavLink to="/menu" className={classes.appBarItem}>
+          MENU
+        </NavLink>
+        <NavLink to="/make-pizza" className={classes.appBarItem}>
+          TỰ LÀM BÁNH
+        </NavLink>
+        <NavLink to="/sales" className={classes.appBarItem}>
+          KHUYẾN MÃI
+        </NavLink>
+
         <div style={{ flexGrow: 1 }}></div>
-        <ButtonBase className={classes.appBarItem} href="/login">
-          Đăng Nhập
-        </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/register">
-          Đăng Kí
-        </ButtonBase>
-        <ButtonBase className={classes.appBarItem} href="/cart">
+        <NavLink to="/login" className={classes.appBarItem}>
+          ĐĂNG NHẬP
+        </NavLink>
+        <NavLink to="/register" className={classes.appBarItem}>
+          ĐĂNG KÝ
+        </NavLink>
+        <NavLink to="/cart" className={classes.appBarItem}>
           <ShoppingCartIcon></ShoppingCartIcon>
-        </ButtonBase>
+        </NavLink>
       </Toolbar>
     </AppBar>
   );

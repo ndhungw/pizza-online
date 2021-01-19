@@ -29,6 +29,20 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "black",
     alignSelf: "center",
   },
+  linkEffect: {
+    textDecoration: "none",
+    color: "#fff",
+
+    transition: theme.transitions.create(["color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      color: "#f3d438",
+    },
+    "&.active": {
+      color: "#f3d438",
+    },
+  },
 }));
 
 const Footer = () => {
@@ -52,6 +66,7 @@ const Footer = () => {
         <img
           src={pizzaCompanyIcon}
           style={{
+            marginLeft: 20,
             width: 50,
             height: 50,
           }}
@@ -101,53 +116,41 @@ const Footer = () => {
             fontWeight: "bold",
           }}
         >
-          Giới thiệu
+          GIỚI THIỆU
         </Typography>
         <Typography
+          className={classes.linkEffect}
           component={Link}
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
         >
           Hệ thống nhà hàng
         </Typography>
         <Typography
+          className={classes.linkEffect}
           component={Link}
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
         >
           Câu chuyện thương hiệu
         </Typography>
         <Typography
+          className={classes.linkEffect}
           component={Link}
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
         >
           Ưu đãi thành viên
         </Typography>
         <Typography
+          className={classes.linkEffect}
           component={Link}
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
         >
           Tuyển dụng
         </Typography>
@@ -185,17 +188,14 @@ const Footer = () => {
             fontWeight: "bold",
           }}
         >
-          Liên hệ
+          LIÊN HỆ
         </Typography>
         <Typography
           component={Link}
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={classes.linkEffect}
         >
           Hướng dẫn mua hàng
         </Typography>
@@ -204,10 +204,7 @@ const Footer = () => {
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={classes.linkEffect}
         >
           Dịch vụ giao hàng
         </Typography>
@@ -216,10 +213,7 @@ const Footer = () => {
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={classes.linkEffect}
         >
           Chính sách bảo mật
         </Typography>
@@ -228,10 +222,7 @@ const Footer = () => {
           to={"#"}
           variant="body2"
           align="justify"
-          style={{
-            color: "white",
-            textDecoration: "none",
-          }}
+          className={classes.linkEffect}
         >
           Điều khoản và điều kiện
         </Typography>
@@ -268,7 +259,7 @@ const Footer = () => {
             fontWeight: "bold",
           }}
         >
-          Follow Us
+          FOLLOW US ON
         </Typography>
         <Link to={"#"}>
           <img
@@ -276,7 +267,7 @@ const Footer = () => {
             style={{
               width: 24,
               height: 24,
-              marginRight: 5,
+              marginRight: 10,
             }}
             alt="facebookIcon"
           />

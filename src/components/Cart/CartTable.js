@@ -49,12 +49,12 @@ export default function CartTable({ cartData, setCount }) {
       <Table className={classes.table} aria-label="simple table" size="small">
         <TableHead>
           <TableRow>
-            <StyledTableCell style={{ borderTopLeftRadius: 30}}>
-              <div style={{marginLeft: "20px"}}>Tên bánh</div>
+            <StyledTableCell style={{ borderTopLeftRadius: 30 }}>
+              <div style={{ marginLeft: "20px" }}>Tên bánh</div>
             </StyledTableCell>
             <StyledTableCell align="center">Kích cỡ</StyledTableCell>
             <StyledTableCell align="center">Đế bánh</StyledTableCell>
-            <StyledTableCell align="right">Giá Tiền</StyledTableCell>
+            <StyledTableCell align="right">Đơn giá</StyledTableCell>
             <StyledTableCell align="center">Số lượng</StyledTableCell>
             <StyledTableCell
               style={{ borderTopRightRadius: 30 }}
@@ -65,7 +65,7 @@ export default function CartTable({ cartData, setCount }) {
           {cartData.map((row, index) => (
             <StyledTableRow key={row.name}>
               <TableCell style={{ color: "white" }} component="th" scope="row">
-              <div style={{marginLeft: "20px"}}>{row.name}</div>
+                <div style={{ marginLeft: "20px" }}>{row.name}</div>
               </TableCell>
               <TableCell
                 style={{
@@ -83,7 +83,7 @@ export default function CartTable({ cartData, setCount }) {
               </TableCell>
               <TableCell style={{ color: "white" }} align="center">
                 <div>
-                <IconButton onClick={() => setCount(index, -1)}>
+                  <IconButton onClick={() => setCount(index, -1)}>
                     <RemoveCircleOutlineIcon
                       style={{ color: "white" }}
                     ></RemoveCircleOutlineIcon>
@@ -105,7 +105,7 @@ export default function CartTable({ cartData, setCount }) {
                     }}
                     value={row.count}
                   ></InputBase>
-                    <IconButton onClick={() => setCount(index, 1)}>
+                  <IconButton onClick={() => setCount(index, 1)}>
                     <AddCircleOutlineIcon
                       style={{ color: "white" }}
                     ></AddCircleOutlineIcon>

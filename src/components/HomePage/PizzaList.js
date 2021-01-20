@@ -31,22 +31,22 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
     flexDirection: "column",
-    width: "100%",
+    width: "100%"
   },
   listContainer: {
     display: "flex",
     overflow: "hidden",
     width: "100%",
     minHeight:
-      typeof window !== "undefined" ? (window.innerHeight * 2) / 5 + 100 : 400,
+      typeof window !== "undefined" ? (window.innerHeight * 2) / 5 + 100 : 400
   },
   gridList: {
     width: "100%",
     height: "100%",
     flexWrap: "nowrap",
-    backgroundColor: backgroundColorT,
     overflow: "auto",
     paddingBottom: 10,
+    backgroundColor: backgroundColorT
   },
   //////
   card: {
@@ -89,6 +89,23 @@ const useStyles = makeStyles((theme) => ({
   addCartIcon: {
     color: "#272B37",
   },
+  linkEffect: {
+    textDecoration: "none",
+    color: "#fff",
+    fontWeight: 'bold',
+    marginRight:20,
+    fontSize: 14,
+
+    transition: theme.transitions.create(["color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      color: "#f3d438",
+    },
+    "&.active": {
+      color: "#f3d438",
+    }
+  }
 }));
 
 function SimpleSelect(props) {
@@ -217,21 +234,21 @@ export default function PizzaList(props) {
         style={{
           backgroundColor: backgroundColorT,
           display: "flex",
-          minHeight: 80,
-          paddingBottom: 10,
+          height: 80,
           flexDirection: "row",
           alignItems: "center",
           justifyContent: "flex-end",
           width: "100%",
+          borderTopLeftRadius:20,
+          borderTopRightRadius:20
         }}
       >
         <ButtonBase href="/menu">
-          <p style={{ fontWeight: "bold", color: textColor, marginRight: 20 }}>
-            Tất cả sản phẩm
-          </p>
+          <Typography color="inherit" className={classes.linkEffect}>Tất cả sản phẩm</Typography>
         </ButtonBase>
       </div>
       <div className={classes.listContainer}>
+        <div style={{height:'94%',width:2,backgroundColor:backgroundColorT}} />
         <GridList className={classes.gridList} cols={3.8} cellHeight="auto">
           {itemList.map((tile) => (
             <GridListTile
@@ -246,6 +263,7 @@ export default function PizzaList(props) {
             </GridListTile>
           ))}
         </GridList>
+        <div style={{height:'94%',width:2,backgroundColor:backgroundColorT}} />
       </div>
     </div>
   );

@@ -99,11 +99,11 @@ const pizzas = [
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex",
+    display: "flex"
   },
   content: {
     flexGrow: 1,
-    overflow: "hidden",
+    overflow: "hidden"
   },
   appBarSpacer: theme.mixins.toolbar,
   container: {

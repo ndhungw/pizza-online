@@ -85,7 +85,7 @@ const Cart = () => {
       <div className={classes.summary}>
         <StyledSum style={{ marginRight: 10 }}>Tổng tiền: </StyledSum>
         <StyledSum>{sum}</StyledSum>
-        <ButtonBase style={{ marginLeft: 30 }}>
+        <ButtonBase style={{ marginLeft: 30 }} href="/payment">
           <div
             style={{
               borderRadius: 20,

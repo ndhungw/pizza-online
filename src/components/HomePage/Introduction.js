@@ -32,7 +32,7 @@ const useStyles = makeStyles((theme) => ({
   },
   image: {
     position: "relative",
-    height: typeof window !== "undefined" ? (window.innerHeight * 3) / 5 : 450,
+    height: typeof window !== "undefined" ? (window.innerHeight * 1) / 2 : 450,
     [theme.breakpoints.down("xs")]: {
       width: "100% !important", // Overrides inline-style
       height: 100,
@@ -76,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
   slideSkeletonView: {
     width: 500,
-    height: (typeof window !== "undefined" ? (window.innerHeight * 3) / 5 : 450)+50,
+    height: (typeof window !== "undefined" ? (window.innerHeight * 1) / 2 : 450)+50,
   }
 }));
 
@@ -90,7 +90,7 @@ export default function Introduction(props) {
   const [slideDirection, setSlideDirection] = useState("left");
 
   useEffect(() => {
-    setTimer(5);
+    setTimer(7);
   }, []);
 
   const changeImage = (image) => {
@@ -108,7 +108,7 @@ export default function Introduction(props) {
       if (selectedImage === images.length - 1) nextImg = 0;
       else nextImg = selectedImage + 1;
       changeImage(nextImg);
-      setTimer(5);
+      setTimer(7);
     } else {
       const timeOut = setTimeout(() => {
         setTimer(timer - 1);
@@ -160,7 +160,7 @@ export default function Introduction(props) {
                   <ButtonBase
                     onClick={() => {
                       changeImage(index);
-                      setTimer(5);
+                      setTimer(7);
                     }}
                     focusRipple
                     key={image.title}
@@ -206,7 +206,7 @@ export default function Introduction(props) {
               <ButtonBase
                 onClick={() => {
                   changeImage(index);
-                  setTimer(5);
+                  setTimer(7);
                 }}
               >
                 <span

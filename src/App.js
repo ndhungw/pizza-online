@@ -15,6 +15,7 @@ import PizzaDetail from "./pages/PizzaDetail";
 import HomePage from "./pages/HomePage";
 import Cart from "./pages/Cart";
 import MakePizza from "./pages/makePizza";
+import Payment from "./pages/Payment";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -61,6 +62,9 @@ function App() {
             </Route>
             <Route path="/make-pizza">
               <MakePizza />
+            </Route>
+            <Route path="/payment">
+              <Payment />
             </Route>
 
             {/* Test components */}

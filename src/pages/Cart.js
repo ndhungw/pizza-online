@@ -60,6 +60,10 @@ const Cart = () => {
     calculateSum(rows);
   }, []);
 
+  useEffect(() => {
+    calculateSum(data);
+  },[data])
+
   const calculateSum = (cartData) => {
     let newSum = 0;
     cartData.map((row) => {
@@ -81,7 +85,7 @@ const Cart = () => {
 
   return (
     <Container style={{ paddingTop: 50 }}>
-      <CartTable cartData={data} setCount={setCount}></CartTable>
+      <CartTable cartData={data} setCount={setCount} setCartData={setData}></CartTable>
       <div className={classes.summary}>
         <StyledSum style={{ marginRight: 10 }}>Tổng tiền: </StyledSum>
         <StyledSum>{sum}</StyledSum>

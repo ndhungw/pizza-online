@@ -41,9 +41,20 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-export default function CartTable({ cartData, setCount }) {
+
+
+export default function CartTable({ cartData, setCartData, setCount }) {
   const classes = useStyles();
 
+  const onClickDelete = (index) => {
+    console.log(index);
+
+    const newData = cartData.filter((a, i)=>{
+      return i !== index;
+    })
+    console.log(newData);
+    setCartData([...newData]);
+  }
   return (
     <TableContainer>
       <Table className={classes.table} aria-label="simple table" size="small">
@@ -113,7 +124,7 @@ export default function CartTable({ cartData, setCount }) {
                 </div>
               </TableCell>
               <TableCell align="center">
-                <IconButton>
+                <IconButton onClick={() => onClickDelete(index)}>
                   <HighlightOffIcon style={{ color: "red" }}></HighlightOffIcon>
                 </IconButton>
               </TableCell>

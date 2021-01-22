@@ -1,6 +1,5 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
@@ -27,11 +26,14 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
   },
   slider: {
-    width: 150,
+    minWidth: 150,
+    [theme.breakpoints.down("xs")]: {
+      minWidth: 100,
+    },
+    [theme.breakpoints.up("lg")]: {
+      minWidth: 100,
+    },
     margin: theme.spacing(0, 1),
-    // color: "#3B3F49",
-    // trackColor: "yellow",
-    // selectionColor: "green",
   },
 }));
 
@@ -49,7 +51,6 @@ export default function RangeSlider() {
 
   return (
     <div className={classes.root}>
-      <Typography>Khoảng giá</Typography>
       <ThemeProvider theme={muiTheme}>
         <Slider
           className={classes.slider}

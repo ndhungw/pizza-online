@@ -2,13 +2,16 @@ import React from "react";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
-import { ButtonBase } from "@material-ui/core";
+import { Box, ButtonBase, IconButton } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import Badge from "@material-ui/core/Badge";
 import { withStyles } from "@material-ui/core/styles";
+// icons
+import MenuIcon from "@material-ui/icons/Menu";
 // assets
 import Logo from "../../assets/img/logo-website.png";
 import { NavLink } from "react-router-dom";
+import FullScreenDialog from "../FullScreenDialog/FullScreenDialog";
 
 const StyledBadge = withStyles((theme) => ({
   badge: {
@@ -26,13 +29,15 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     marginRight: theme.spacing(2),
   },
-  footer: {
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(6),
+  logoName: {
+    marginRight: 0,
+    marginLeft: 10,
+    fontSize: 20,
+    fontWeight: "bold",
   },
 
   appBarItem: {
-    marginLeft: theme.spacing(7),
+    marginLeft: theme.spacing(3),
     fontSize: 16,
     fontWeight: "bold",
     textDecoration: "none",
@@ -48,49 +53,89 @@ const useStyles = makeStyles((theme) => ({
       color: "#f3d438",
     },
   },
+  detailMenu: {
+    display: "flex",
+    flexGrow: 1,
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  menuButton: {
+    color: "#fff",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  spaceBetween: {
+    [theme.breakpoints.down("sm")]: {
+      flexGrow: 1,
+    },
+  },
 }));
 
 const Header = () => {
   const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+
   return (
     <AppBar positionFixed className={classes.appBar}>
       <Toolbar>
-        <img src={Logo} alt="pizza company logo" width="30" height="30"></img>
-        <ButtonBase
-          className={classes.appBarItem}
-          href="/"
-          style={{
-            marginRight: 0,
-            marginLeft: 10,
-            fontSize: 20,
-            fontWeight: "bold",
-          }}
-        >
-          INSTANT PIZZA
-        </ButtonBase>
-        <NavLink to="/menu" className={classes.appBarItem}>
-          MENU
-        </NavLink>
-        <NavLink to="/make-pizza" className={classes.appBarItem}>
-          TỰ LÀM BÁNH
-        </NavLink>
-        <NavLink to="/sales" className={classes.appBarItem}>
-          KHUYẾN MÃI
-        </NavLink>
+        <Box component="div" style={{ display: "flex" }}>
+          <img src={Logo} alt="pizza company logo" width="30" height="30"></img>
+          <ButtonBase
+            className={classes.appBarItem}
+            href="/"
+            style={{
+              marginRight: 0,
+              marginLeft: 10,
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            {"INSTANT PIZZA"}
+          </ButtonBase>
+        </Box>
 
-        <div style={{ flexGrow: 1 }}></div>
-        <NavLink to="/login" className={classes.appBarItem}>
-          ĐĂNG NHẬP
-        </NavLink>
-        <NavLink to="/register" className={classes.appBarItem}>
-          ĐĂNG KÝ
-        </NavLink>
-        <NavLink to="/cart" className={classes.appBarItem}>
-          <StyledBadge badgeContent={2}>
-            <ShoppingCartIcon />
-          </StyledBadge>
-        </NavLink>
+        <Box component="div" className={classes.spaceBetween}></Box>
+
+        <Box className={classes.menuButton}>
+          <IconButton
+            aria-label="menu-app-bar-button"
+            style={{ color: "#fff" }}
+            onClick={() => setOpen(true)}
+          >
+            <MenuIcon />
+          </IconButton>
+        </Box>
+
+        <Box className={classes.detailMenu}>
+          <NavLink to="/menu" className={classes.appBarItem}>
+            MENU
+          </NavLink>
+          <NavLink to="/make-pizza" className={classes.appBarItem}>
+            TỰ LÀM BÁNH
+          </NavLink>
+          <NavLink to="/sales" className={classes.appBarItem}>
+            KHUYẾN MÃI
+          </NavLink>
+
+          <Box component="div" style={{ flexGrow: 1 }} />
+
+          <NavLink to="/login" className={classes.appBarItem}>
+            ĐĂNG NHẬP
+          </NavLink>
+          <NavLink to="/register" className={classes.appBarItem}>
+            ĐĂNG KÝ
+          </NavLink>
+          <NavLink to="/cart" className={classes.appBarItem}>
+            <StyledBadge badgeContent={2}>
+              <ShoppingCartIcon />
+            </StyledBadge>
+          </NavLink>
+        </Box>
       </Toolbar>
+      <FullScreenDialog open={open} setOpen={setOpen} />
     </AppBar>
   );
 };

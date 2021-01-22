@@ -14,8 +14,8 @@ import InDeWeight from "./IncreDecreWeight";
 
 const useStyles = makeStyles({
   table: {
-    minWidth: 300,
-    maxWidth: 350,
+    minWidth: 200,
+    maxWidth: 500,
     borderRadius: 30,
   },
   TableCell01: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles({
   },
   scrollTable: {
     overflowY: "scroll",
-    height: "220px"
+    height: "200px"
   },
 });
 

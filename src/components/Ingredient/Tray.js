@@ -50,7 +50,7 @@ export default function Tray({
       <br />
       <Grid container xs={12}>
         <Grid xs={1} />
-        <Grid xs={3} class="contentCenter">
+        <Grid xs={3} class="contentCenter" margin="20px">
           <SelectSize
             label="Kích cỡ"
             sizeOption={sizeOption}
@@ -77,8 +77,7 @@ export default function Tray({
         </Grid>
       </Grid>
       <br />
-      <Grid class="contentCenter" xs={12} style={{ fontSize: "20px" }}>
-        <div>
+      <Grid container xs={12} style={{ fontSize: "20px" }}  class="contentCenter">
           <Table
             Ingredient={Ingredient}
             setIngredient={setIngredient}
@@ -88,17 +87,17 @@ export default function Tray({
             presentTotal={presentTotal}
             setPresentTotal={setPresentTotal}
           />
-        </div>
       </Grid>
       <br />
-      <Grid container xs={12} style={{ fontSize: "20px" }}>
-        <Grid xs={1} />
-        <Grid xs={4}>Số lượng:</Grid>
-        <Grid xs={7}>
-          <Increment amount={amount} setAmount={setAmount} />
+      <Grid container  style={{ fontSize: "20px" }} >
+        <Grid item xs={12} sm={1} md={1} />
+        <Grid item xs={12} sm={3} md={3}>Số lượng:</Grid>
+        <Grid item xs={12} sm={6} md={6}>
+          <Increment amount={amount} setAmount={setAmount}/>
         </Grid>
       </Grid>
       <br />
+      <br/>
       <Grid
         xs={12}
         style={{ fontWeight: "bold", fontSize: "20px" }}

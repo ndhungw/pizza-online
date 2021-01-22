@@ -79,10 +79,10 @@ export default function IngreList({HaiSan, Thit, RauCu, onAddItem}) {
         </Tabs>
       </AppBar>
       <TabPanel value={value} index={0}>
-            <Grid container xs={12} spacing={2} >
+        <Grid container spacing={5} >
             {HaiSan.map((item) => {
                     return (
-                    <Grid item key={item.id} xs={4}>
+                    <Grid item key={item.id}   xs={12} sm={4} md={4}>
                         <IngreCard className={classes.pizzaCard}  item={item}  onAddItem={onAddItem}  />
                     </Grid>
                     );
@@ -90,10 +90,10 @@ export default function IngreList({HaiSan, Thit, RauCu, onAddItem}) {
             </Grid>
       </TabPanel>
       <TabPanel value={value} index={1}>
-            <Grid container xs={12} spacing={2}>
+          <Grid container spacing={5}>
                 {Thit.map((item) => {
                         return (
-                        <Grid item key={item.id} xs={4}>
+                        <Grid item key={item.id} xs={12} sm={6} md={4}>
                             <IngreCard className={classes.pizzaCard} item={item}  onAddItem={onAddItem}   />
                         </Grid>
                         );
@@ -101,10 +101,10 @@ export default function IngreList({HaiSan, Thit, RauCu, onAddItem}) {
             </Grid>
       </TabPanel>
       <TabPanel value={value} index={2}>
-            <Grid container xs={12} spacing={2}>
+        <Grid container spacing={5} >
                 {RauCu.map((item) => {
                         return (
-                        <Grid item key={item.id} xs={4}>
+                        <Grid item key={item.id} xs={12} sm={6} md={4}>
                             <IngreCard className={classes.pizzaCard}  item={item}  onAddItem={onAddItem}/>
                         </Grid>
                         );

@@ -13,11 +13,19 @@
 .name {
   color: inherit;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .price {
   color: red;
   font-weight: bold;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10%;
+  margin-top: 10%;
 }
 
 .cardActions {
@@ -35,7 +43,8 @@
 }
 
 .tray {
-  height: 570px;
+  min-height: 580px;
+  max-height: 800px;
   z-index: -100;
   background-color: #e7e7e7;
   border-radius: 15px;

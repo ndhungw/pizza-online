@@ -1,4 +1,5 @@
 import React from "react";
+import "../../App.css";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardActions from "@material-ui/core/CardActions";
@@ -8,7 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import { Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AddShoppingCartRoundedIcon from "@material-ui/icons/AddShoppingCartRounded";
-
+import {Grid } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   cardActions: {
@@ -23,6 +24,8 @@ const useStyles = makeStyles((theme) => ({
   addCartIcon: {
     color: "#272B37",
   },
+
+ }
 }));
 
 export default function IngreCard({item, onAddItem}) {
@@ -36,8 +39,8 @@ export default function IngreCard({item, onAddItem}) {
         />
       </CardActionArea>
       <CardContent class="contentCenter">
-        <Typography variant="h6" component="h2"> <div class="name"> {item.name} </div></Typography>
-        <Typography> <div class="price">{item.price}.000đ/50g</div></Typography>
+        <Grid item xs={12} class="name"> {item.name} </Grid>
+        <Grid  xs={12} sm={10} class="price"> {item.price}.000đ/50g</Grid>
       </CardContent>
       <CardActions class="cardActions">
         <Button className={classes.addCardButton} variant="contained" size="large" onClick={()=>onAddItem(temp)} >

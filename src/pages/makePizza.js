@@ -161,7 +161,7 @@ const data=[
 ]
 const useStyles = makeStyles((theme) => ({
   test: {
-    marginTop: theme.spacing(4),
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -199,49 +199,56 @@ export default function Menu() {
 
   return (
     <Grid container xs={12}>
-      <Grid xs={1}></Grid>
-      <Grid xs={7} style={{}}>
-        <br />
-        <Grid
-          xs={12}
-          class="contentCenter"
-          style={{ fontFamily: "Damion", color: "#D2112D", fontSize: "50px" }}
-        >
-          Làm bánh theo ý thích
-        </Grid>
+      <Grid container xs={12}>
+          <Grid xs={1}></Grid>
+          <Grid xs={7}>
+            <br />
+            <Grid
+              xs={12}
+              class="contentCenter"
+              style={{ fontFamily: "Damion", color: "#D2112D", fontSize: "50px" }}
+            >
+              Làm bánh theo ý thích
+            </Grid>
 
-        <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
-          NHÂN BÁNH:
-        </Grid>
-        <Grid container xs={12} style={{ fontSize: "20px" }}>
-          Quý khách vui lòng chọn tối đa:
-          <div style={{ color: "red" }}>&nbsp;{maxWeight}gram</div>
-        </Grid>
-        <br />
-        <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
-          <List HaiSan={HaiSan} Thit={Thit} RauCu={RauCu} onAddItem={onAddItem} />
-        </Grid>
+            <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
+              NHÂN BÁNH:
+            </Grid>
+            <Grid container xs={12} style={{ fontSize: "20px" }}>
+              Quý khách vui lòng chọn tối đa:
+              <div style={{ color: "red" }}>&nbsp;{maxWeight}gram</div>
+            </Grid>
+            {/* <br />
+            <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
+              <List HaiSan={HaiSan} Thit={Thit} RauCu={RauCu} onAddItem={onAddItem} />
+            </Grid> */}
+          </Grid>
       </Grid>
       <Grid style={{ width: "10px" }}></Grid>
-      <Grid xs={3}>
-        <div
-          className={classes.test}
-          style={{ position: "fixed", marginBottom: "100px" }}
-        >
-          <Tray
-            sizeOption={sizeOption}
-            setSizeOption={setSizeOption}
-            presentTotal={presentTotal}
-            setPresentTotal={setPresentTotal}
-            maxWeight={maxWeight}
-            setMaxWeight={setMaxWeight}
-            crustOption={crustOption}
-            setCrustOption={setCrustOption}
-            Ingredient={Ingredient}
-            setIngredient={setIngredient}
-            marginBottom={200}
-          />
-        </div>
+      <Grid container xs={12}>
+              <Grid xs={1}></Grid>
+              <Grid xs={7}>
+                <br />
+                <Grid xs={12} style={{ fontSize: "20px", fontWeight: "bold" }}>
+                  <List HaiSan={HaiSan} Thit={Thit} RauCu={RauCu} onAddItem={onAddItem} />
+                </Grid>
+            </Grid>
+            <Grid style={{ width: "20px" }}></Grid>
+            <Grid xs={3} className={classes.test}>
+                <Tray
+                  sizeOption={sizeOption}
+                  setSizeOption={setSizeOption}
+                  presentTotal={presentTotal}
+                  setPresentTotal={setPresentTotal}
+                  maxWeight={maxWeight}
+                  setMaxWeight={setMaxWeight}
+                  crustOption={crustOption}
+                  setCrustOption={setCrustOption}
+                  Ingredient={Ingredient}
+                  setIngredient={setIngredient}
+                  marginBottom={200}
+                />
+            </Grid>
       </Grid>
     </Grid>
   );

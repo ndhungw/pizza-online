@@ -44,10 +44,10 @@ function App() {
         <Header />
         <main className={classes.main}>
           {/* The page content here */}
-          <Route exact path="/">
-            <HomePage />
-          </Route>
           <Switch>
+            <Route exact path="/">
+              <HomePage />
+            </Route>
             <Route path="/home">
               <HomePage />
             </Route>
@@ -65,17 +65,6 @@ function App() {
             </Route>
             <Route path="/payment">
               <Payment />
-            </Route>
-
-            {/* Test components */}
-            <Route path="/components/search-bar">
-              <SearchBar />
-            </Route>
-            <Route path="/components/filter">
-              <Filter />
-            </Route>
-            <Route path="/components/pizza-card">
-              <PizzaCard />
             </Route>
           </Switch>
         </main>

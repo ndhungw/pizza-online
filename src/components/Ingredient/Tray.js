@@ -89,13 +89,18 @@ export default function Tray({
           />
       </Grid>
       <br />
-      <Grid container  style={{ fontSize: "20px" }} >
-        <Grid item xs={12} sm={1} md={1} />
-        <Grid item xs={12} sm={3} md={3}>Số lượng:</Grid>
-        <Grid item xs={12} sm={6} md={6}>
+      <Grid container xs={12} style={{ fontSize: "20px" }} >
+        <Grid item xs={1} />
+        <Grid item xs={3}>Số lượng: </Grid>
+        <Grid item xs={8}>
           <Increment amount={amount} setAmount={setAmount}/>
         </Grid>
       </Grid>
+      {/* <Grid
+        xs={12}
+      >
+         Số lượng:<Increment amount={amount} setAmount={setAmount}/>
+      </Grid> */}
       <br />
       <br/>
       <Grid

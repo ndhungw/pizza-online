@@ -32,8 +32,8 @@ export default function IngreCard({item, onAddItem}) {
 
   return (
     <Card class="contentCenter">
-      <CardActionArea>
-        <CardMedia component="img" alt="pizza image" height="280" image={item.image}
+      <CardActionArea >
+        <CardMedia component="img" alt="pizza image" style={{height:"280"}} image={item.image}
         />
       </CardActionArea>
       <CardContent class="contentCenter">

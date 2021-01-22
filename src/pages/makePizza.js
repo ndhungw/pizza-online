@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "../App.css";
 import { Grid } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import Badge from "@material-ui/core/Badge";
 // import SimpleSelect from "../components/CustomPizzaCard/SimpleSelect";
 import List from "../components/Ingredient/IngreList";
 import Tray from "../components/Ingredient/Tray";
@@ -11,6 +12,9 @@ import Pork from "../assets/img/xongkhoi.jpg";
 import OC from "../assets/img/ot.jpg";
 import Vegt from "../assets/img/rau.jpg";
 import Meat from "../assets/img/bo.jpg";
+import { Box, IconButton } from "@material-ui/core";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import FullScreenDialog from "../components/Ingredient/Dialog";
 const HaiSan = [
   {
     id: 1,
@@ -159,19 +163,86 @@ const data=[
     weight: 50
   },
 ]
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}))(Badge);
+
 const useStyles = makeStyles((theme) => ({
-  test: {
+  tray: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none"
+    },
     marginTop: theme.spacing(2),
+    minHeight: "580px",
+    maxHeight: "800px",
+    zIndex: "-100",
+    backgroundColor: "#e7e7e7",
+    borderRadius: "15px",
+  },
+  appBar: {
+    backgroundColor: "#005500",
+  },
+  icon: {
+    marginRight: theme.spacing(2),
+  },
+  logoName: {
+    marginRight: 0,
+    marginLeft: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
+  appBarItem: {
+    marginLeft: theme.spacing(3),
+    fontSize: 16,
+    fontWeight: "bold",
+    textDecoration: "none",
+    color: "#fff",
+
+    transition: theme.transitions.create(["color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      color: "#f3d438",
+    },
+    "&.active": {
+      color: "#f3d438",
+    },
+  },
+  detailMenu: {
+    display: "flex",
+    flexGrow: 1,
+    marginRight: theme.spacing(2),
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+  menuButton: {
+    color: "#fff",
+    [theme.breakpoints.up("md")]: {
+      display: "none",
+    },
+  },
+  spaceBetween: {
+    [theme.breakpoints.down("sm")]: {
+      flexGrow: 1,
+    },
   },
 }));
 
-export default function Menu() {
+export default function MakePizza() {
   const classes = useStyles();
   const [sizeOption, setSizeOption] = useState("Nhỏ");
   const [crustOption, setCrustOption] = useState("Dày");
   const [maxWeight, setMaxWeight] = useState(300);
   const [Ingredient, setIngredient] = useState(data);
   const [presentTotal, setPresentTotal] = useState(150);
+  const [open, setOpen] = useState(false);
 
   const onAddItem = (temp) => {
     if (presentTotal < maxWeight){
@@ -234,7 +305,17 @@ export default function Menu() {
                 </Grid>
             </Grid>
             <Grid style={{ width: "20px" }}></Grid>
-            <Grid xs={3} className={classes.test}>
+              <Box className={classes.menuButton}>
+                <IconButton
+                  aria-label="menu-app-bar-button"
+                  style={{ color: "#fff"}}
+                  onClick={() => setOpen(true)}
+
+                >
+                  <ArrowBackIosIcon style={{color: "red", fontSize: "50px",  width:"30px"}} /><ArrowBackIosIcon style={{color: "red", fontSize: "50px",  width:"30px"}} />
+                </IconButton>
+              </Box>
+            <Grid xs={3} className={classes.tray}>
                 <Tray
                   sizeOption={sizeOption}
                   setSizeOption={setSizeOption}
@@ -249,6 +330,17 @@ export default function Menu() {
                   marginBottom={200}
                 />
             </Grid>
+            <FullScreenDialog open={open} setOpen={setOpen} sizeOption={sizeOption}
+                  setSizeOption={setSizeOption}
+                  presentTotal={presentTotal}
+                  setPresentTotal={setPresentTotal}
+                  maxWeight={maxWeight}
+                  setMaxWeight={setMaxWeight}
+                  crustOption={crustOption}
+                  setCrustOption={setCrustOption}
+                  Ingredient={Ingredient}
+                  setIngredient={setIngredient}
+                  marginBottom={200} />
       </Grid>
     </Grid>
   );

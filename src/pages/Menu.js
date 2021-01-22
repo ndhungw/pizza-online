@@ -55,19 +55,28 @@ export default function Menu() {
   const classes = useStyles();
   return (
     <Container maxWidth="lg" className={classes.container}>
-      <div className={classes.searchAndFilter}>
-        <SearchBar className={classes.searchBar} />
-        <Filter />
-      </div>
-      <Grid container spacing={7} className={classes.gridContainer}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <SearchBar className={classes.searchBar} />
+        </Grid>
+        <Grid item xs={12}>
+          <Filter />
+        </Grid>
+      </Grid>
+
+      <Grid container spacing={3}>
         {items.map((item, index) => {
           return (
-            <Grid item key={index} xs={12} sm={6} md={4}>
-              <PizzaCard
-                className={classes.pizzaCard}
-                name={item.name}
-                price={item.price}
-              />
+            <Grid
+              item
+              key={index}
+              xs={12}
+              sm={6}
+              md={4}
+              container
+              justify="center"
+            >
+              <PizzaCard name={item.name} price={item.price} />
             </Grid>
           );
         })}

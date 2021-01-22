@@ -10,8 +10,9 @@ import DialogTitle from "@material-ui/core/DialogTitle";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import InteractiveList from "../components/List/InteractiveList";
-import { Card, CardContent } from "@material-ui/core";
-import {useHistory} from "react-router-dom";
+import { Card, CardContent, InputAdornment } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import RoomIcon from '@material-ui/icons/Room';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -82,9 +83,9 @@ const useStyles = makeStyles((theme) => ({
     // marginLeft: "10%",
   },
   buttonText: {
-    color: "white",
-    fontSize: 18,
     fontWeight: "bold",
+    color: "white",
+    fontSize: 18
   },
   rowInfo: {},
   confirmInfo: {
@@ -112,7 +113,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 // <Container component="main" maxWidth="xs">
 export default function Payment() {
-  let history=useHistory();
+  let history = useHistory();
   const classes = useStyles();
 
   // dialog
@@ -267,6 +268,16 @@ export default function Payment() {
                   size="small"
                   defaultValue="12/34 Nguyễn Tri Phương, phường 5, quận 5, tp.HCM"
                   required
+
+                  InputProps={{
+                    endAdornment: (
+                      <InputAdornment position="end">
+                        <ButtonBase>
+                          <RoomIcon style={{color: "#005500",}} />
+                        </ButtonBase>
+                      </InputAdornment>
+                    ),
+                  }}
                 />
               </div>
             </div>
@@ -303,7 +314,7 @@ export default function Payment() {
             </div>
             <div style={{ height: 20 }}></div>
             <div className={classes.buttonContainer}>
-              <ButtonBase
+              {/* <ButtonBase
                 className={classes.button}
                 style={{ backgroundColor: "#D2112D" }}
                 onClick={handleClickOpen}
@@ -311,6 +322,20 @@ export default function Payment() {
                 <Typography className={classes.buttonText} color="inherit">
                   XÁC NHẬN ĐẶT HÀNG
                 </Typography>
+              </ButtonBase> */}
+              <ButtonBase onClick={handleClickOpen}>
+                <div
+                  style={{
+                    borderRadius: 20,
+                    paddingVertical: 15,
+                    paddingInline: 40,
+                    backgroundColor: "#D2112D",
+                  }}
+                >
+                  <p className={classes.buttonText}>
+                    XÁC NHẬN ĐẶT HÀNG
+            </p>
+                </div>
               </ButtonBase>
             </div>
           </div>

@@ -18,15 +18,15 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     backgroundColor: "#005500",
     width: "100%",
-    padding: 10,
-    marginTop: 30,
+    padding: theme.spacing(2),
+    marginTop: theme.spacing(4),
   },
 
   verticalLineStyle: {
-    width: 3,
+    width: 1,
     border: "none",
-    height: "100%",
-    backgroundColor: "black",
+    height: "90%",
+    backgroundColor: "#fff",
     alignSelf: "center",
   },
   linkEffect: {
@@ -92,6 +92,7 @@ const Footer = () => {
           </Typography>
         </div>
       </Grid>
+
       <Box
         component={Grid}
         container
@@ -102,6 +103,7 @@ const Footer = () => {
       >
         <Divider className={classes.verticalLineStyle} />
       </Box>
+
       <Grid
         container
         item
@@ -114,6 +116,7 @@ const Footer = () => {
           flexDirection: "column",
           marginTop: 10,
           marginBottom: 10,
+          paddingLeft: 20,
         }}
       >
         <Typography
@@ -163,6 +166,7 @@ const Footer = () => {
           Tuyển dụng
         </Typography>
       </Grid>
+
       <Box
         component={Grid}
         container
@@ -174,6 +178,7 @@ const Footer = () => {
       >
         <Divider className={classes.verticalLineStyle} />
       </Box>
+
       <Grid
         container
         item
@@ -186,6 +191,7 @@ const Footer = () => {
           flexDirection: "column",
           marginTop: 10,
           marginBottom: 10,
+          paddingLeft: 20,
         }}
       >
         <Typography
@@ -245,6 +251,7 @@ const Footer = () => {
       >
         <Divider className={classes.verticalLineStyle} />
       </Box>
+
       <Grid
         container
         item
@@ -256,6 +263,7 @@ const Footer = () => {
         style={{
           marginTop: 10,
           marginBottom: 10,
+          paddingLeft: 20,
         }}
       >
         <Typography

@@ -23,9 +23,7 @@ const useStyles = makeStyles((theme) => ({
   },
   addCartIcon: {
     color: "#272B37",
-  },
-
- }
+  }
 }));
 
 export default function IngreCard({item, onAddItem}) {

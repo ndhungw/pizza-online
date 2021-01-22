@@ -43,6 +43,11 @@ const useStyles = makeStyles((theme) => ({
       color: "#f3d438",
     },
   },
+  logo: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
 }));
 
 const Footer = () => {
@@ -63,26 +68,29 @@ const Footer = () => {
           marginBottom: 10,
         }}
       >
-        <img
-          src={pizzaCompanyIcon}
-          style={{
-            marginLeft: 20,
-            width: 50,
-            height: 50,
-          }}
-          alt="PizzaCompanyIcon"
-        />
-        &nbsp;
-        <Typography
-          variant="subtitle1"
-          align="justify"
-          style={{
-            color: "white",
-            fontWeight: "bold",
-          }}
-        >
-          The Pizza Company
-        </Typography>
+        <div className={classes.logo}>
+          <img
+            src={pizzaCompanyIcon}
+            style={{
+              marginLeft: 20,
+              width: 50,
+              height: 50,
+            }}
+            alt="PizzaCompanyIcon"
+          />
+          &nbsp;
+          <Typography
+            variant="subtitle1"
+            align="justify"
+            style={{
+              color: "white",
+              fontWeight: "bold",
+              marginLeft: 10,
+            }}
+          >
+            Instant Pizza
+          </Typography>
+        </div>
       </Grid>
       <Box
         component={Grid}

@@ -40,10 +40,10 @@ const Comment = ({comment, ...props}) => {
     const classes = useStyles();
 
     return(
-        <Grid container item xs={12} justify='center' className={classes.parent} {...props}>
-            <Grid container item xs={2} justify="flex-start" alignItems="flex-start" >
+        <Grid container item xs={12} justify='left' className={classes.parent} {...props}>
+            <Grid container item xs={1} justify="flex-start" alignItems="flex-start" >
                 <img src={userAvatarUrl} style={{
-                    width: '40%',
+                    width: '80%',
                 }} alt="UserAvatar"/>
             </Grid>
             <Grid container item xs={8}>

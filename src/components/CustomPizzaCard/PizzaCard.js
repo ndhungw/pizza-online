@@ -16,8 +16,8 @@ import pizzaImgUrl from "../../assets/img/pizzaImg.png";
 import SimpleSelect from "./SimpleSelect";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 300,
+  cardContent: {
+    padding: theme.spacing(1, 3, 0, 3),
   },
   name: {
     textDecoration: "none",
@@ -30,11 +30,18 @@ const useStyles = makeStyles((theme) => ({
   cardActions: {
     display: "flex",
     justifyContent: "space-between",
-    padding: theme.spacing(1, 2),
+    padding: theme.spacing(0, 3, 2, 3),
   },
   addCardButton: {
     backgroundColor: "#FED400",
     height: 55,
+
+    transition: theme.transitions.create(["background-color", "transform"], {
+      duration: theme.transitions.duration.complex,
+    }),
+    "&:hover": {
+      backgroundColor: "#ffdf3c",
+    },
   },
   addCartIcon: {
     color: "#272B37",
@@ -50,33 +57,27 @@ export default function PizzaCard({ name, price }) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
-        <CardMedia
-          component="img"
-          alt="pizza image"
-          height="280"
-          image={pizzaImgUrl}
-        />
-      </CardActionArea>
-      <CardContent>
-        <Typography
-          gutterBottom
-          variant="h6"
-          component="h2"
-          className={classes.name}
-        >
-          <NavLink to={`/pizzas/${name}`} className={classes.name}>
+      <NavLink to={`/pizza-detail`} className={classes.name}>
+        <CardActionArea>
+          <CardMedia component="img" alt="pizza image" image={pizzaImgUrl} />
+        </CardActionArea>
+        <CardContent className={classes.cardContent}>
+          <Typography
+            gutterBottom
+            variant="h6"
+            component="h2"
+            className={classes.name}
+          >
             {name}
-          </NavLink>
-          {name}
-        </Typography>
-        <Typography gutterBottom className={classes.price}>
-          {price},000 đ
-        </Typography>
-        <Typography variant="body2" color="textSecondary" component="p">
-          Mô tả chiếc bánh này
-        </Typography>
-      </CardContent>
+          </Typography>
+          <Typography gutterBottom className={classes.price}>
+            {price},000 đ
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+            {"Mô tả chiếc bánh này một cách chi tiết kĩ lưỡng nhất có thể"}
+          </Typography>
+        </CardContent>
+      </NavLink>
       <CardActions className={classes.cardActions}>
         <SimpleSelect
           label="Kích cỡ"

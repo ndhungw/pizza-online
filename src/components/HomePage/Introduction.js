@@ -8,7 +8,7 @@ import Slide from "@material-ui/core/Slide";
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    minWidth: 500,
+    //minWidth: 500,
     width: "100%",
     flexDirection: "column",
     alignItems: "center",
@@ -17,10 +17,10 @@ const useStyles = makeStyles((theme) => ({
   },
   carouselContainer: {
     display: "flex",
-    minWidth: 500,
+    //minWidth: 500,
     width: "100%",
     flexDirection: "row",
-    alignItems: "center",
+    alignItems: "center"
   },
   dotContainer: {
     display: "flex",
@@ -30,13 +30,13 @@ const useStyles = makeStyles((theme) => ({
     alignItems: "center",
     justifyContent: "center",
   },
-  image: {
-    position: "relative",
-    height: typeof window !== "undefined" ? (window.innerHeight * 1) / 2 : 450,
-    [theme.breakpoints.down("xs")]: {
+  /*[theme.breakpoints.down("xs")]: {
       width: "100% !important", // Overrides inline-style
       height: 100,
-    },
+    },*/
+  image: {
+    position: "relative",
+    height: window.innerWidth<window.innerHeight ? (window.innerHeight * 1) / 3 : (window.innerHeight * 1) / 2,
     "&:hover, &$focusVisible": {
       zIndex: 1,
       "& $imageBackdrop": {
@@ -75,8 +75,8 @@ const useStyles = makeStyles((theme) => ({
     transition: theme.transitions.create("opacity"),
   },
   slideSkeletonView: {
-    width: 500,
-    height: (typeof window !== "undefined" ? (window.innerHeight * 1) / 2 : 450)+50,
+    width: "100%",
+    height: 50 + window.innerWidth<window.innerHeight ? ((window.innerHeight * 1) / 3) : ((window.innerHeight * 1) / 2),
   }
 }));
 
@@ -131,39 +131,37 @@ export default function Introduction(props) {
             {images.map((image, index) => (
               <>
                 {selectedImage === index ? (
-                  <ButtonBase
-                    onClick={() => {
-                      alert(image.title);
-                    }}
-                    focusRipple
-                    key={image.title}
+                  <div
                     className={classes.image}
-                    style={{ width: "70%" }}
+                    style={{ width: window.innerWidth<window.innerHeight?"100%":"70%" }}
                   >
-                    <span
-                      className={classes.imageSrc}
-                      style={{
-                        backgroundImage: `url(${image.url})`,
-                      }}
-                    />
-                  </ButtonBase>
+                    <ButtonBase style={{ width: "100%" }} key={image.title} className={classes.image} onClick={() => {alert(image.title);}}>
+                      <span
+                        className={classes.imageSrc}
+                        style={{
+                          backgroundImage: `url(${image.url})`,
+                        }}
+                      />
+                    </ButtonBase>
+                  </div>
                 ) : (
                   <span />
                 )}
               </>
             ))}
-            <span style={{ width: "15%" }} />
+            <span style={{ width: window.innerWidth<window.innerHeight?0:"15%" }} />
             {images.map((image, index) => (
               <>
-                {selectedImage === index - 1 ||
-                (selectedImage === images.length - 1 && index === 0) ? (
+                {(selectedImage === index - 1 ||
+                (selectedImage === images.length - 1 && index === 0))
+                && window.innerWidth>window.innerHeight ? (
                   <ButtonBase
                     onClick={() => {
                       changeImage(index);
                       setTimer(7);
                     }}
                     focusRipple
-                    key={image.title}
+                    key={image.title+"dsds"}
                     className={classes.image}
                     style={{ width: "15%" }}
                   >

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center', 
     justifyContent: 'center', 
     marginLeft: '5%', 
-    width: '40%', 
+    width: window.innerWidth<window.innerHeight?'80%':'40%', 
     borderTopLeftRadius: 20, 
     borderTopRightRadius: 20
   },
@@ -138,8 +138,8 @@ export default function ComboList(props) {
                 </ButtonBase>
             </div>
             <div className={classes.listContainer}>
-                <div style={{height:'94%',width:2,backgroundColor:backgroundColorT}} />
-                <GridList className={classes.gridList} cols={3.2} cellHeight='auto'>
+                <div style={{height:'94%',width:window.innerWidth<window.innerHeight?1:2,backgroundColor:backgroundColorT}} />
+                <GridList className={classes.gridList} cols={window.innerWidth<window.innerHeight?1.1:3.2} cellHeight='auto'>
                     {itemList.map((tile) => (
                         <GridListTile style={{
                             height: "100%", 
@@ -151,7 +151,7 @@ export default function ComboList(props) {
                         </GridListTile>
                     ))}
                 </GridList>
-                <div style={{height:'94%',width:2,backgroundColor:backgroundColorT}} />
+                <div style={{height:'94%',width:window.innerWidth<window.innerHeight?1:2,backgroundColor:backgroundColorT}} />
             </div>
         </div>
     );

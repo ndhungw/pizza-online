@@ -109,8 +109,8 @@ const useStyles = makeStyles((theme) => ({
   container: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(4),
-    paddingLeft: theme.spacing(4),
-    paddingRight: theme.spacing(4),
+    width: window.innerWidth*90/100,
+    marginHorizontal: window.innerWidth*10/100,
     flexDirection: "column",
   },
 }));
@@ -119,10 +119,9 @@ const HomePage = (props) => {
   const classes = useStyles();
 
   return (
-    <Container maxWidth="lg" className={classes.root}>
+    <div className={classes.root}>
       {/* <div className={classes.root}> */}
-      <CssBaseline />
-      <main className={classes.content}>
+      <div className={classes.content}>
         <Container maxWidth="xl" className={classes.container}>
           <Introduction images={images} />
           <div style={{ height: 60 }} />
@@ -130,9 +129,9 @@ const HomePage = (props) => {
           <div style={{ height: 100 }} />
           <ComboList itemList={combos} />
         </Container>
-      </main>
+      </div>
       {/* </div> */}
-    </Container>
+    </div>
   );
 };
 

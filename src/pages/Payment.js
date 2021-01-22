@@ -162,7 +162,7 @@ export default function Payment() {
                   id="firstName"
                   label="Người đặt hàng"
                   size="small"
-                  placeholder="Nguyễn Văn An"
+                  defaultValue="Nguyễn Văn An"
                 />
               </div>
             </div>
@@ -193,7 +193,7 @@ export default function Payment() {
                   id="phone"
                   label="Số điện thoại"
                   size="small"
-                  placeholder="0123456789"
+                  defaultValue="0123456789"
                 />
               </div>
             </div>
@@ -224,7 +224,7 @@ export default function Payment() {
                   id="receiver"
                   label="Người nhận hàng"
                   size="small"
-                  placeholder="Võ Thị Vi"
+                  defaultValue="Võ Thùy Linh"
                 />
               </div>
             </div>
@@ -255,7 +255,7 @@ export default function Payment() {
                   id="address"
                   label="Địa chỉ nhận hàng"
                   size="small"
-                  placeholder="117 Nghĩa Thục, phường 5, quận 5, TP.Hồ Chí Minh"
+                  defaultValue="12/34 Nguyễn Tri Phương, phường 5, quận 5, tp.HCM"
                 />
               </div>
             </div>
@@ -287,20 +287,12 @@ export default function Payment() {
                   fullWidth
                   id="note"
                   label=""
-                  value={`\n\n\n\n\n`}
+                  value={`Chạy tới hẻm 12 quẹo trái đi tới cuối đường`}
                 />
               </div>
             </div>
             <div style={{ height: 20 }}></div>
             <div className={classes.buttonContainer}>
-              {/* <ButtonBase
-                className={classes.button}
-                style={{ backgroundColor: "#e0e0e0" }}
-              >
-                <Typography className={classes.buttonText} color="inherit">
-                  XEM LẠI GIỎ HÀNG
-                </Typography>
-              </ButtonBase> */}
               <ButtonBase
                 className={classes.button}
                 style={{ backgroundColor: "#FED400" }}

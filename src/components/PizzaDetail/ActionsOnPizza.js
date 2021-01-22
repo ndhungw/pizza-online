@@ -39,102 +39,162 @@ const ActionsOnPizza = ({onSizeChange, onCrustChange}) => {
         }
     };
 
-    return(
-        <Grid container item xs={12} justify='center' className={classes.parent}>
-            {/* 2 combo boxes here */}
-            <Grid container item xs={12} md={6} style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-start',
-                alignItems: 'center'
-            }}>
-                {/* Choose pizza size */}
-                <Grid container item xs={12} sm={6} style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center', 
-                    alignItems: 'center'
-                }}>
-                    <Grid container item xs={12} sm={3} justify="flex-start">
-                        <Typography color='textPrimary' align="left" variant="h6" style={{
-                            fontWeight: "bold"
-                        }}>
-                            Kích cỡ:
-                        </Typography>
-                    </Grid>
-                    <Grid container item xs={12} sm={9} justify="center">
-                        <Select variant="standard" value={sizeOption}
-                        onChange={(e) => handleSizeChange(e)} style={{
-                            width: '70%'
-                        }} MenuProps={{
-                            disableScrollLock: true,
-                        }}>
-                            {sizeOptions.map((val, idx) =>
-                                <MenuItem key={"pizzaSizeOption" + idx} value={idx}>{val}</MenuItem>
-                            )}
-                        </Select>
-                    </Grid>
-                </Grid>  
-                {/* Choose pizza crust */}
-                <Grid container item xs={12} sm={6} style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center', 
-                    alignItems: 'center'
-                }}>
-                    <Grid container item xs={12} sm={3} justify="flex-start">
-                        <Typography color='textPrimary' align="left" variant="h6" style={{
-                            fontWeight: "bold"
-                        }}>
-                            Đế bánh:
-                        </Typography>
-                    </Grid>
-                    <Grid container item xs={12} sm={9} justify="center">
-                        <Select value={crustOption}
-                        onChange={(e) => handleCrustChange(e)} variant="standard" style={{
-                            width: '70%'
-                        }} MenuProps={{
-                            disableScrollLock: true,
-                        }}>
-                            {crustOptions.map((val, idx) =>
-                                <MenuItem key={"pizzaCrustOption" + idx} value={idx}>{val}</MenuItem>
-                            )}
-                        </Select>
-                    </Grid>
-                </Grid>                     
-            </Grid>
+  return (
+    <Grid container item xs={12} justify="center" className={classes.parent} spacing={3}>
+      {/* 2 combo boxes here */}
+      <Grid
+        container
+        item
+        xs={12}
+        md={7}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          alignItems: "center",
+        }}
+      >
+        {/* Choose pizza size */}
+        <Grid
+          container
+          item
+          xs={12}
+          sm={6}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Grid container item xs={12} sm={4} justify="center">
+            <Typography
+              color="textPrimary"
+              align="center"
+              variant="h6"
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              Kích cỡ:
+            </Typography>
+          </Grid>
+          <Grid container item xs={12} sm={8} justify="center">
+            <Select
+              variant="standard"
+              value={sizeOption}
+              onChange={(e) => handleSizeChange(e)}
+              style={{
+                width: "70%",
+              }}
+              MenuProps={{
+                disableScrollLock: true,
+              }}
+            >
+              {sizeOptions.map((val, idx) => (
+                <MenuItem key={"pizzaSizeOption" + idx} value={idx}>
+                  {val}
+                </MenuItem>
+              ))}
+            </Select>
+          </Grid>
+        </Grid>
+        {/* Choose pizza crust */}
+        <Grid
+          container
+          item
+          xs={12}
+          sm={6}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Grid container item xs={12} sm={4} justify="center">
+            <Typography
+              color="textPrimary"
+              align="left"
+              variant="h6"
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              Đế bánh:
+            </Typography>
+          </Grid>
+          <Grid container item xs={12} sm={8} justify="center">
+            <Select
+              value={crustOption}
+              onChange={(e) => handleCrustChange(e)}
+              variant="standard"
+              style={{
+                width: "70%",
+              }}
+              MenuProps={{
+                disableScrollLock: true,
+              }}
+            >
+              {crustOptions.map((val, idx) => (
+                <MenuItem key={"pizzaCrustOption" + idx} value={idx}>
+                  {val}
+                </MenuItem>
+              ))}
+            </Select>
+          </Grid>
+        </Grid>
+      </Grid>
 
-             {/* cart and box here */}
-            <Grid container item xs={12} md={6} style={{
-                display: 'flex',
-                flexDirection: 'row',
-                justifyContent: 'flex-end',
-                alignItems: 'center'
-            }}>
-                {/* Choose pizza amount */}
-                <Grid container item xs={12} sm={10} style={{
-                    display: 'flex',
-                    flexDirection: 'row',
-                    justifyContent: 'center', 
-                    alignItems: 'center'
-                }}>
-                    <Grid container item xs={9} sm={3} justify="flex-start">
-                        <Typography color='textPrimary' align="left" variant="h6" style={{
-                            fontWeight: "bold",
-                            justifySelf: 'flex-start'
-                        }}>
-                            Số lượng:
-                        </Typography>
-                    </Grid>
-                    <Grid container item xs={12} sm={9} justify="center">
-                        <div style={{
-                            width: '70%',
-                            justifySelf: 'flex-end'
-                        }}>
-                            <IncrementDecrementBox />
-                        </div>
-                    </Grid>
-                </Grid>
+      {/* cart and box here */}
+      <Grid
+        container
+        item
+        xs={12}
+        md={5}
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
+          alignItems: "center",
+        }}
+      >
+        {/* Choose pizza amount */}
+        <Grid
+          container
+          item
+          xs={12}
+          sm={10}
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <Grid container item xs={9} sm={3} justify="center">
+            <Typography
+              color="textPrimary"
+              align="center"
+              variant="h6"
+              style={{
+                fontWeight: "bold",
+              }}
+            >
+              Số lượng:
+            </Typography>
+          </Grid>
+          <Grid container item xs={12} sm={9} justify="center">
+            <div
+              style={{
+                width: "70%",
+                justifySelf: "flex-end",
+              }}
+            >
+              <IncrementDecrementBox />
+            </div>
+          </Grid>
+        </Grid>
 
                 <Grid container item xs={12} sm={2} style={{
                     display: 'flex',

@@ -84,7 +84,7 @@ const CommentSection = () => {
     return(
         <Grid container item xs={12} justify='center' className={classes.parent}>
             <Grid container item xs={12} justify="center">
-                <Grid container item xs={9} style={{
+                <Grid container item xs={12} sm={9} style={{
                     padding: 10,
                 }} justify="center">
                     <TextField variant='outlined' fullWidth multiline rows={5}
@@ -94,7 +94,7 @@ const CommentSection = () => {
                         setCurrentComment(e.target.value);
                     }}/>
                 </Grid>
-                <Grid container item xs={3} style={{
+                <Grid container item xs={12} sm={3} style={{
                     padding: 10,
                     paddingLeft: 0,
                     alignItems: 'center'

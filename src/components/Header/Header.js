@@ -4,9 +4,20 @@ import Toolbar from "@material-ui/core/Toolbar";
 import { makeStyles } from "@material-ui/core/styles";
 import { ButtonBase } from "@material-ui/core";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+import Badge from "@material-ui/core/Badge";
+import { withStyles } from "@material-ui/core/styles";
 // assets
 import Logo from "../../assets/img/logo-website.png";
 import { NavLink } from "react-router-dom";
+
+const StyledBadge = withStyles((theme) => ({
+  badge: {
+    right: -3,
+    top: 13,
+    border: `2px solid ${theme.palette.background.paper}`,
+    padding: "0 4px",
+  },
+}))(Badge);
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -75,7 +86,9 @@ const Header = () => {
           ĐĂNG KÝ
         </NavLink>
         <NavLink to="/cart" className={classes.appBarItem}>
-          <ShoppingCartIcon></ShoppingCartIcon>
+          <StyledBadge badgeContent={2}>
+            <ShoppingCartIcon />
+          </StyledBadge>
         </NavLink>
       </Toolbar>
     </AppBar>

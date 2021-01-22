@@ -6,9 +6,6 @@ import { makeStyles } from "@material-ui/core/styles";
 // components
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import Filter from "./components/Filter/Filter";
-import PizzaCard from "./components/CustomPizzaCard/PizzaCard";
-import SearchBar from "./components/SearchBar/SearchBar";
 // views
 import Menu from "./pages/Menu";
 import PizzaDetail from "./pages/PizzaDetail";

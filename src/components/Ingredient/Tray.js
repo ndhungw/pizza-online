@@ -8,6 +8,7 @@ import Increment from "./IncreDecrePizza";
 import Table from "./IngreTable";
 import AddIcon from '@material-ui/icons/Add';
 import Equal from "../../assets/img/equal.png";
+import { ButtonBase, Typography } from "@material-ui/core";
 export default function Tray({
   sizeOption,
   crustOption,
@@ -92,8 +93,8 @@ export default function Tray({
       <br />
       <Grid container xs={12} style={{ fontSize: "20px" }}>
         <Grid xs={1} />
-        <Grid xs={3}>Số lượng:</Grid>
-        <Grid xs={8}>
+        <Grid xs={4}>Số lượng:</Grid>
+        <Grid xs={7}>
           <Increment amount={amount} setAmount={setAmount} />
         </Grid>
       </Grid>
@@ -111,19 +112,20 @@ export default function Tray({
         style={{ fontWeight: "bold", fontSize: "20px" }}
         class="contentCenter"
       >
-        <button
-          onClick={addCart}
-          style={{
-            height: "40px",
-            fontSize: "20px",
-            borderRadius: "15px",
-            backgroundColor: "#D2112D",
-            color: "white",
-            width: "full",
-          }}
-        >
-          Thêm vào giỏ
-        </button>
+        <ButtonBase onClick={addCart}>
+          <div
+            style={{
+              borderRadius: 20,
+              paddingVertical: 15,
+              paddingInline: 40,
+              backgroundColor: "#D2112D",
+            }}
+          >
+            <p style={{ fontWeight: "bold", color: "white", fontSize: 15 }}>
+              Thêm vào giỏ
+            </p>
+          </div>
+        </ButtonBase>
       </Grid>
       <br />
     </Card>

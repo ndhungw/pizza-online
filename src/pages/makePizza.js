@@ -226,7 +226,7 @@ export default function Menu() {
       <Grid xs={3}>
         <div
           className={classes.test}
-          style={{ position: "fixed" }}
+          style={{ position: "fixed", marginBottom: "100px" }}
         >
           <Tray
             sizeOption={sizeOption}
@@ -239,6 +239,7 @@ export default function Menu() {
             setCrustOption={setCrustOption}
             Ingredient={Ingredient}
             setIngredient={setIngredient}
+            marginBottom={200}
           />
         </div>
       </Grid>

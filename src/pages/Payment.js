@@ -11,6 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import InteractiveList from "../components/List/InteractiveList";
 import { Card, CardContent } from "@material-ui/core";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   },
   form: {
     flex: 1, // Fix IE 11 issue.
-    marginTop: theme.spacing(3),
+    // marginTop: theme.spacing(3),
     width: "60%",
   },
   button: {
@@ -47,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   titleContainer: {
-    marginLeft: "10%",
+    // marginLeft: "10%",
     flex: 1,
     display: "flex",
     flexDirection: "row",
@@ -78,10 +79,10 @@ const useStyles = makeStyles((theme) => ({
     height: 100,
     justifyContent: "space-around",
     flexDirection: "row",
-    marginLeft: "10%",
+    // marginLeft: "10%",
   },
   buttonText: {
-    color: "#272B37",
+    color: "white",
     fontSize: 18,
     fontWeight: "bold",
   },
@@ -95,7 +96,8 @@ const useStyles = makeStyles((theme) => ({
   },
   confirmButton: {
     fontWeight: "bold",
-    backgroundColor: "#FED400",
+    backgroundColor: "#D2112D",
+    color: "white",
 
     transition: theme.transitions.create(["background-color", "transform"], {
       duration: theme.transitions.duration.complex,
@@ -110,6 +112,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 // <Container component="main" maxWidth="xs">
 export default function Payment() {
+  let history=useHistory();
   const classes = useStyles();
 
   // dialog
@@ -122,6 +125,10 @@ export default function Payment() {
   const handleClose = () => {
     setOpen(false);
   };
+  const handleAccept = () => {
+    setOpen(false);
+    history.push("/cart");
+  };
 
   return (
     <div className={classes.root}>
@@ -131,15 +138,16 @@ export default function Payment() {
             Đơn thanh toán
           </Typography>
         </div>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} >
           <div
             style={{ display: "flex", flexDirection: "column", width: "100%" }}
           >
-            <div style={{ height: 20 }}></div>
+            {/* <div style={{ height: 20 }}></div> */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                alignItems: "center",
                 flex: 1,
                 width: "100%",
               }}
@@ -150,7 +158,6 @@ export default function Payment() {
                   component="h1"
                   variant="h6"
                 >
-                  Người đặt hàng
                 </Typography>
               </div>
               <div style={{ width: "80%" }}>
@@ -163,14 +170,16 @@ export default function Payment() {
                   label="Người đặt hàng"
                   size="small"
                   defaultValue="Nguyễn Văn An"
+                  required
                 />
               </div>
             </div>
-            <div style={{ height: 40 }}></div>
+            {/* <div style={{ height: 40 }}></div> */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                alignItems: "center",
                 flex: 1,
                 width: "100%",
               }}
@@ -181,7 +190,6 @@ export default function Payment() {
                   component="h1"
                   variant="h6"
                 >
-                  Số điện thoại
                 </Typography>
               </div>
               <div style={{ width: "80%" }}>
@@ -194,14 +202,16 @@ export default function Payment() {
                   label="Số điện thoại"
                   size="small"
                   defaultValue="0123456789"
+                  required
                 />
               </div>
             </div>
-            <div style={{ height: 40 }}></div>
+            {/* <div style={{ height: 40 }}></div> */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                alignItems: "center",
                 flex: 1,
                 width: "100%",
               }}
@@ -212,7 +222,6 @@ export default function Payment() {
                   component="h1"
                   variant="h6"
                 >
-                  Người nhận hàng
                 </Typography>
               </div>
               <div style={{ width: "80%" }}>
@@ -225,14 +234,16 @@ export default function Payment() {
                   label="Người nhận hàng"
                   size="small"
                   defaultValue="Võ Thùy Linh"
+                  required
                 />
               </div>
             </div>
-            <div style={{ height: 40 }}></div>
+            {/* <div style={{ height: 40 }}></div> */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                alignItems: "center",
                 flex: 1,
                 width: "100%",
               }}
@@ -243,7 +254,6 @@ export default function Payment() {
                   component="h1"
                   variant="h6"
                 >
-                  Địa chỉ nhận hàng
                 </Typography>
               </div>
               <div style={{ width: "80%" }}>
@@ -256,14 +266,16 @@ export default function Payment() {
                   label="Địa chỉ nhận hàng"
                   size="small"
                   defaultValue="12/34 Nguyễn Tri Phương, phường 5, quận 5, tp.HCM"
+                  required
                 />
               </div>
             </div>
-            <div style={{ height: 40 }}></div>
+            {/* <div style={{ height: 40 }}></div> */}
             <div
               style={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "column",
+                alignItems: "center",
                 flex: 1,
                 width: "100%",
               }}
@@ -274,20 +286,18 @@ export default function Payment() {
                   component="h1"
                   variant="h6"
                 >
-                  Ghi chú
                 </Typography>
               </div>
               <div style={{ width: "80%" }}>
                 <TextField
-                  multiline={true}
                   style={{ backgroundColor: "#E7E7E7" }}
-                  size="medium"
-                  name="note"
+                  name="address"
                   variant="outlined"
                   fullWidth
-                  id="note"
-                  label=""
-                  value={`Chạy tới hẻm 12 quẹo trái đi tới cuối đường`}
+                  id="address"
+                  label="Ghi chú"
+                  size="small"
+                  defaultValue="Chạy tới hẻm 12 quẹo trái đi tới cuối đường"
                 />
               </div>
             </div>
@@ -295,7 +305,7 @@ export default function Payment() {
             <div className={classes.buttonContainer}>
               <ButtonBase
                 className={classes.button}
-                style={{ backgroundColor: "#FED400" }}
+                style={{ backgroundColor: "#D2112D" }}
                 onClick={handleClickOpen}
               >
                 <Typography className={classes.buttonText} color="inherit">
@@ -355,7 +365,7 @@ export default function Payment() {
                 {"Thay đôi thông tin"}
               </Button>
               <Button
-                onClick={handleClose}
+                onClick={handleAccept}
                 className={classes.confirmButton}
                 variant="contained"
                 autoFocus

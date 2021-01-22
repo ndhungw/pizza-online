@@ -66,7 +66,7 @@ const Header = () => {
             fontWeight: "bold",
           }}
         >
-          Pizza Company
+          INSTANT PIZZA
         </ButtonBase>
         <NavLink to="/menu" className={classes.appBarItem}>
           MENU

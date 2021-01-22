@@ -55,6 +55,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "row",
     justifyContent: "center",
     width: "50%",
+    marginBottom: 10
   },
   titleText: {
     fontSize: 30,
@@ -110,6 +111,15 @@ const useStyles = makeStyles((theme) => ({
   cancelButton: {
     fontWeight: "bold",
   },
+
+  paymentRow: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    flex: 1,
+    width: "100%",
+    marginBottom: 40,
+  },
 }));
 // <Container component="main" maxWidth="xs">
 export default function Payment() {
@@ -145,23 +155,9 @@ export default function Payment() {
           >
             {/* <div style={{ height: 20 }}></div> */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                flex: 1,
-                width: "100%",
-              }}
+              className={classes.paymentRow}
             >
-              <div style={{ height: 40, width: "20%" }}>
-                <Typography
-                  className={classes.attributeText}
-                  component="h1"
-                  variant="h6"
-                >
-                </Typography>
-              </div>
-              <div style={{ width: "80%" }}>
+              <div style={{ width: "100%" }}>
                 <TextField
                   style={{ backgroundColor: "#E7E7E7" }}
                   name="firstName"
@@ -177,23 +173,10 @@ export default function Payment() {
             </div>
             {/* <div style={{ height: 40 }}></div> */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                flex: 1,
-                width: "100%",
-              }}
+              className={classes.paymentRow}
             >
-              <div style={{ height: 40, width: "20%" }}>
-                <Typography
-                  className={classes.attributeText}
-                  component="h1"
-                  variant="h6"
-                >
-                </Typography>
-              </div>
-              <div style={{ width: "80%" }}>
+
+              <div style={{ width: "100%" }}>
                 <TextField
                   style={{ backgroundColor: "#E7E7E7" }}
                   name="phone"
@@ -209,23 +192,10 @@ export default function Payment() {
             </div>
             {/* <div style={{ height: 40 }}></div> */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                flex: 1,
-                width: "100%",
-              }}
+              className={classes.paymentRow}
             >
-              <div style={{ height: 40, width: "20%" }}>
-                <Typography
-                  className={classes.attributeText}
-                  component="h1"
-                  variant="h6"
-                >
-                </Typography>
-              </div>
-              <div style={{ width: "80%" }}>
+
+              <div style={{ width: "100%" }}>
                 <TextField
                   style={{ backgroundColor: "#E7E7E7" }}
                   name="receiver"
@@ -241,23 +211,10 @@ export default function Payment() {
             </div>
             {/* <div style={{ height: 40 }}></div> */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                flex: 1,
-                width: "100%",
-              }}
+              className={classes.paymentRow}
             >
-              <div style={{ height: 40, width: "20%" }}>
-                <Typography
-                  className={classes.attributeText}
-                  component="h1"
-                  variant="h6"
-                >
-                </Typography>
-              </div>
-              <div style={{ width: "80%" }}>
+
+              <div style={{ width: "100%" }}>
                 <TextField
                   style={{ backgroundColor: "#E7E7E7" }}
                   name="address"
@@ -273,7 +230,7 @@ export default function Payment() {
                     endAdornment: (
                       <InputAdornment position="end">
                         <ButtonBase>
-                          <RoomIcon style={{color: "#005500",}} />
+                          <RoomIcon style={{ color: "#005500", }} />
                         </ButtonBase>
                       </InputAdornment>
                     ),
@@ -283,23 +240,9 @@ export default function Payment() {
             </div>
             {/* <div style={{ height: 40 }}></div> */}
             <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                flex: 1,
-                width: "100%",
-              }}
+              className={classes.paymentRow}
             >
-              <div style={{ height: 40, width: "20%" }}>
-                <Typography
-                  className={classes.attributeText}
-                  component="h1"
-                  variant="h6"
-                >
-                </Typography>
-              </div>
-              <div style={{ width: "80%" }}>
+              <div style={{ width: "100%" }}>
                 <TextField
                   style={{ backgroundColor: "#E7E7E7" }}
                   name="address"
@@ -312,7 +255,6 @@ export default function Payment() {
                 />
               </div>
             </div>
-            <div style={{ height: 20 }}></div>
             <div className={classes.buttonContainer}>
               {/* <ButtonBase
                 className={classes.button}

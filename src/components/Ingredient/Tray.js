@@ -31,7 +31,7 @@ export default function Tray({
   useEffect(() => {
     setPriceSC(priceS + priceC);
     setTotal((priceSC + money) * amount);
-  }, []);
+  });
 
   if (sizeOption === "Nhỏ") setMaxWeight(300);
   else if (sizeOption === "Vừa") setMaxWeight(400);

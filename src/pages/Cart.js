@@ -53,8 +53,8 @@ const Cart = () => {
 
   useEffect(() => {
     const rows = [
-      createData("Pizza", "Lớn", "Dày", 150000, 10),
-      createData("Pizza Đặc Biệt", "Lớn", "Dày", 150000, 3),
+      createData("Pizza", "Lớn", "Dày", 150, 2),
+      createData("Pizza Đặc Biệt", "Lớn", "Dày", 120, 3),
     ];
     setData(rows);
     calculateSum(rows);
@@ -62,7 +62,7 @@ const Cart = () => {
 
   useEffect(() => {
     calculateSum(data);
-  },[data])
+  }, [data]);
 
   const calculateSum = (cartData) => {
     let newSum = 0;
@@ -85,10 +85,14 @@ const Cart = () => {
 
   return (
     <Container style={{ paddingTop: 50 }}>
-      <CartTable cartData={data} setCount={setCount} setCartData={setData}></CartTable>
+      <CartTable
+        cartData={data}
+        setCount={setCount}
+        setCartData={setData}
+      ></CartTable>
       <div className={classes.summary}>
         <StyledSum style={{ marginRight: 10 }}>Tổng tiền: </StyledSum>
-        <StyledSum>{sum}</StyledSum>
+        <StyledSum>{`${sum},000`}</StyledSum>
         <ButtonBase style={{ marginLeft: 30 }} href="/payment">
           <div
             style={{

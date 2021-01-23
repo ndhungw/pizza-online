@@ -13,14 +13,12 @@ import RemoveCircleOutlineIcon from "@material-ui/icons/RemoveCircleOutline";
 import { IconButton, InputBase } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
-
   root: {
     width: "100%",
     overflowX: "auto",
   },
 
-  table: {
-  },
+  table: {},
 
   count: {
     width: 75,
@@ -46,8 +44,6 @@ const StyledTableRow = withStyles((theme) => ({
   },
 }))(TableRow);
 
-
-
 export default function CartTable({ cartData, setCartData, setCount }) {
   const classes = useStyles();
 
@@ -56,10 +52,10 @@ export default function CartTable({ cartData, setCartData, setCount }) {
 
     const newData = cartData.filter((a, i) => {
       return i !== index;
-    })
+    });
     console.log(newData);
     setCartData([...newData]);
-  }
+  };
   return (
     <TableContainer className={classes.root}>
       <Table className={classes.table} aria-label="simple table" size="small">
@@ -95,7 +91,7 @@ export default function CartTable({ cartData, setCartData, setCount }) {
                 {row.crust}
               </TableCell>
               <TableCell style={{ color: "white" }} align="right">
-                {row.price}
+                {`${row.price},000`}
               </TableCell>
               <TableCell style={{ color: "white" }} align="center">
                 <div>

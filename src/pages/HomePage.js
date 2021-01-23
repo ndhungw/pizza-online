@@ -56,61 +56,45 @@ const combos = [
 ];
 const pizzas = [
   {
-    name: "ABC1",
+    name: "Pizza hải sản sốt bơ",
     price: "123",
   },
   {
-    name: "ABC2",
-    price: "123",
+    name: "Pizza kim chi thịt ba rọi",
+    price: "132",
   },
   {
-    name: "ABC3",
-    price: "123",
+    name: "Pizza thơm Hawaiian",
+    price: "120",
   },
   {
-    name: "ABC1",
-    price: "123",
+    name: "Pizza xúc xích",
+    price: "130",
   },
   {
-    name: "ABC2",
-    price: "123",
+    name: "Pizza phô mai Deluxe",
+    price: "120",
   },
   {
-    name: "ABC3",
-    price: "123",
-  },
-  {
-    name: "ABC1",
-    price: "123",
-  },
-  {
-    name: "ABC2",
-    price: "123",
-  },
-  {
-    name: "ABC3",
-    price: "123",
-  },
-  {
-    name: "ABC1",
-    price: "123",
+    name: "Pizza BBQ",
+    price: "135",
   },
 ];
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    display: "flex"
+    display: "flex",
   },
   content: {
     flexGrow: 1,
-    overflow: "hidden"
+    overflow: "hidden",
   },
   appBarSpacer: theme.mixins.toolbar,
   container: {
     paddingTop: theme.spacing(6),
     paddingBottom: theme.spacing(4),
-    width: window.innerWidth*90/100,
-    marginHorizontal: window.innerWidth*10/100,
+    width: (window.innerWidth * 90) / 100,
+    marginHorizontal: (window.innerWidth * 10) / 100,
     flexDirection: "column",
   },
 }));

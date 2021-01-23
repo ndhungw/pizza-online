@@ -18,36 +18,36 @@ const useStyles = makeStyles((theme) => ({
 
 const items = [
   {
-    name: "ABC1",
+    name: "Pizza hải sản sốt bơ",
     price: "123",
   },
   {
-    name: "ABC2",
-    price: "123",
+    name: "Pizza kim chi thịt ba rọi",
+    price: "132",
   },
   {
-    name: "ABC3",
-    price: "123",
+    name: "Pizza thơm Hawaiian",
+    price: "120",
   },
   {
-    name: "ABC1",
-    price: "123",
+    name: "Pizza xúc xích",
+    price: "130",
   },
   {
-    name: "ABC2",
-    price: "123",
+    name: "Pizza phô mai Deluxe",
+    price: "120",
   },
   {
-    name: "ABC3",
-    price: "123",
+    name: "Pizza BBQ",
+    price: "135",
   },
   {
-    name: "ABC1",
-    price: "123",
+    name: "Pizza khoai lang",
+    price: "135",
   },
   {
-    name: "ABC2",
-    price: "123",
+    name: "Pizza nấm chay",
+    price: "125",
   },
 ];
 
